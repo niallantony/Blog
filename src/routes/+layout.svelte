@@ -1,8 +1,13 @@
 <script>
   let { children } = $props();
+  let lightMode = $state(true);
+  function changeMode() {
+    console.log("Yes");
+    lightMode = lightMode ? false : true;
+  }
 </script>
 
-<div class="body">
+<div class={lightMode ? "body light" : "body dark"}>
   <nav>
     <a href="/">home</a>
     <a href="/about">about</a>
@@ -12,16 +17,40 @@
   <div class="content">
     {@render children()}
   </div>
-  <footer><a href="https://www.github.com/niallantony">github</a></footer>
+  <footer>
+    <a href="https://www.github.com/niallantony">github</a>
+    <button class="mode" onclick={changeMode}
+      >{lightMode ? "dark mode" : "light mode"}</button
+    >
+  </footer>
 </div>
 
 <style>
-  :root {
+  button.mode {
+    background-color: var(--dark);
+    color: var(--accent);
+    border: 0;
+    justify-self: flex-end;
+    font-family: "new-science", sans-serif;
+  }
+  button:hover {
+    color: var(--hover);
+  }
+  .dark {
     --light: #fffcf2;
     --mid1: #ccc5b9;
     --mid2: #403d39;
     --accent: #eb5e28;
     --dark: #252422;
+    --hover: #fffcf2;
+  }
+  .light {
+    --hover: #252422;
+    --dark: #fffcf2;
+    --mid1: #ccc5b9;
+    --mid2: #403d39;
+    --accent: #eb5e28;
+    --light: #252422;
   }
   .body {
     display: flex;
@@ -51,13 +80,17 @@
   footer {
     justify-self: start;
     display: flex;
-    justify-content: space-evenly;
     background-color: var(--dark);
     padding: 1rem 0;
     margin: 0;
   }
+  footer {
+    justify-content: space-between;
+    padding: 1rem;
+  }
 
   nav {
+    justify-content: space-evenly;
     border-bottom: 1px solid var(--accent);
   }
 
@@ -69,7 +102,7 @@
 
   nav > a:hover,
   footer > a:hover {
-    filter: brightness(400%);
+    color: var(--hover);
   }
 
   footer {
