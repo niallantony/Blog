@@ -1,8 +1,11 @@
-<h1>about</h1>
-<div class="about-layout">
-  <div class="block">
-    <h2>About Me</h2>
-    <p>
+<script>
+  import TextBlock from "./TextBlock.svelte";
+
+  function randomRem() {
+    return Math.floor(Math.random() * 7);
+  }
+  const aboutMe = {
+    "About Me": `
       I have always had a passion for making things. Growing up, I found an
       outlet for this in drawing and writing - stories, imaginary maps, board
       games. I found a passion for engineering at school, and experimented
@@ -12,19 +15,25 @@
       come back to computers, and spend my time learning and building, driven by
       the same curiosity and motivation to create that first led me to pick up a
       pencil.
-    </p>
-  </div>
-  <div class="block">
-    <h2>What I Believe</h2>
-    <p>
+    `,
+  };
+  const beliefs = {
+    "What I Believe": `
       Technology is at its best when it brings people together, enhances
       creativity, and makes knowledge more accessible. I believe in a future
       where software is built responsibly, AI serves as a tool for inclusion,
       and innovation is driven by curiosity and craft — not hype. As a
       developer, I want to contribute to this vision by crafting systems that
       are effective, ethical, and open to all.
-    </p>
-  </div>
+
+    `,
+  };
+</script>
+
+<h1>about</h1>
+<div class="about-layout">
+  <TextBlock textContent={aboutMe} />
+  <TextBlock textContent={beliefs} />
 </div>
 
 <style>
