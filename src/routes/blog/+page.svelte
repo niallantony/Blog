@@ -2,6 +2,7 @@
   import Post from "./Post.svelte";
 
   let { data } = $props();
+  console.log(data);
 </script>
 
 <h1>Blog</h1>
@@ -9,7 +10,7 @@
   <div class="navigator">
     <ul>
       {#each data.months as month}
-        <li>{month}</li>
+        <li><button>{month}</button></li>
       {/each}
     </ul>
   </div>
@@ -28,11 +29,18 @@
     color: var(--accent);
   }
   .blog-layout {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    height: 100%;
+  }
+  .navigator {
+    border-right: solid 1px var(--accent);
+  }
+  button {
+    text-transform: lowercase;
   }
   li {
     font-family: "new-science", sans-serif;
-    text-transform: lowercase;
     list-style: none;
   }
 </style>
