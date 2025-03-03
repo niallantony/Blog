@@ -19,6 +19,7 @@ export async function findAllPosts() {
         title: post.title,
         tags: post.tags,
         body: post.body,
+        added: post.added,
       };
     });
     return posts;
