@@ -26,14 +26,14 @@
 </div>
 
 <style>
-  button.mode {
+  :global(button) {
     background-color: var(--dark);
     color: var(--accent);
     border: 0;
     justify-self: flex-end;
     font-family: "new-science", sans-serif;
   }
-  button:hover {
+  :global(button:hover) {
     color: var(--hover);
   }
   .dark {
