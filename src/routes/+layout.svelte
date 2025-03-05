@@ -63,6 +63,11 @@
     overflow: scroll;
     display: flex;
     flex-direction: column;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .content::-webkit-scrollbar {
+    display: none;
   }
   :global(h1, h2) {
     font-family: "new-science", sans-serif;

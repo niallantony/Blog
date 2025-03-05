@@ -1,9 +1,11 @@
 <script>
   import Barcode from "$lib/Barcode.svelte";
-  let { title, added, image } = $props();
+  let { title, date, url, image } = $props();
+  const clickurl = $state(url);
+  console.log(clickurl);
 </script>
 
-<div class="card">
+<a href={clickurl} class="card">
   <Barcode string={title}>
     {#if image}
       <img src={image.src} alt={image.alt} />
@@ -11,12 +13,12 @@
       <div class="noimg"><p>no_img</p></div>
     {/if}
     <h1>{title}</h1>
-    <p class="date">{added}</p>
+    <p class="date">{date}</p>
   </Barcode>
   <div class="upper-cutaway"></div>
   <div class="lower-cutaway1"></div>
   <div class="lower-cutaway2"></div>
-</div>
+</a>
 
 <style>
   .upper-cutaway {

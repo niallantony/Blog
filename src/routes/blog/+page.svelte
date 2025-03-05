@@ -1,9 +1,6 @@
 <script>
   import Barcode from "$lib/Barcode.svelte";
   import Card from "./Card.svelte";
-  import Month from "./Month.svelte";
-  import Post from "./Post.svelte";
-  import PostList from "./PostList.svelte";
 
   let { data } = $props();
   let active = $state([]);
@@ -23,13 +20,13 @@
 <div class="blog-layout">
   <div class="display">
     {#each data.titles as post}
-      {@render postCard(post.title, post.added)}
+      {@render postCard(post.title, post.date, post.url)}
     {/each}
   </div>
 </div>
 
-{#snippet postCard(title, added)}
-  <Card {title} {added} />
+{#snippet postCard(title, date, url)}
+  <Card {title} {date} {url} />
 {/snippet}
 
 <style>
@@ -44,6 +41,12 @@
   }
   .display {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  }
+
+  @media (max-width: 420px) {
+    .display {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

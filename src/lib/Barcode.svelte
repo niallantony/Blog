@@ -8,7 +8,6 @@
     .join("_")
     .split("");
 
-  console.log("Converted", toConvert);
   let pixelCount = 0;
 
   function encodeDigits(array) {
@@ -30,7 +29,6 @@
     styleString += encodeDigits(ENCODINGS[103]);
     for (let char in toConvert) {
       const charCode = toConvert[char].charCodeAt(0);
-      console.log(charCode, String.fromCharCode(charCode));
       styleString += encodeDigits(ENCODINGS[charCode - 32]);
       weightedSum += (char + 1) * (toConvert[char].charCodeAt(0) - 32);
     }

@@ -41,8 +41,7 @@
     font-size: max(3rem, 6vw);
     margin: 2rem 4rem 0;
   }
-  h1::before,
-  h2::before {
+  h1::before {
     content: "∎ ";
     color: var(--accent);
   }
@@ -51,19 +50,5 @@
     grid-template-columns: 1fr;
     max-width: min(100%, 720px);
     align-self: center;
-  }
-  .block {
-    margin: 1rem;
-  }
-  .block > h2 {
-    margin: 0 1rem;
-    text-transform: lowercase;
-  }
-  .block > p {
-    text-align: justify;
-    padding-left: 2rem;
-    margin-left: 2rem;
-    text-indent: -1rem;
-    border-left: solid 1px var(--accent);
   }
 </style>
