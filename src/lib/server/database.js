@@ -12,9 +12,9 @@ export async function findAllPosts() {
 
     const collection = database.collection("posts");
 
-    const response = await collection.find().toArray();
+    const cursor = await collection.find().toArray();
 
-    const posts = response.map((post) => {
+    const posts = cursor.map((post) => {
       return {
         title: post.title,
         tags: post.tags,
@@ -30,6 +30,29 @@ export async function findAllPosts() {
   }
 }
 
+export async function findPostTitles() {
+  try {
+    await client.connect();
+
+    const database = client.db("myBlogDB");
+
+    const collection = database.collection("posts");
+
+    const cursor = await collection.find().project({
+      title: 1,
+      added: { $dateToString: { format: "%Y-%m-%d", date: "$added" } },
+      _id: 0,
+    });
+
+    const data = await cursor.toArray();
+    return data;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await client.close();
+  }
+}
+
 export async function findDistinctDates() {
   try {
     await client.connect();
@@ -38,7 +61,7 @@ export async function findDistinctDates() {
 
     const collection = database.collection("posts");
 
-    const response = await collection
+    const cursor = await collection
       .aggregate([
         {
           $group: {
@@ -54,7 +77,7 @@ export async function findDistinctDates() {
         },
       ])
       .toArray();
-    const dates = response.map((date) => date._id.date);
+    const dates = cursor.map((date) => date._id.date);
     console.log(dates);
     return dates;
   } catch (err) {

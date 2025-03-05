@@ -1,21 +1,36 @@
 <script>
+  import Barcode from "$lib/Barcode.svelte";
+  import Card from "./Card.svelte";
+  import Month from "./Month.svelte";
   import Post from "./Post.svelte";
+  import PostList from "./PostList.svelte";
 
   let { data } = $props();
-  console.log(data);
+  let active = $state([]);
+
+  console.log(data.titles);
+  function closePost(index) {
+    if (active.includes(index)) {
+      const arrayIndex = active.indexOf(index);
+      active.splice(arrayIndex, 1);
+    } else {
+      active.push(index);
+    }
+  }
 </script>
 
 <h1>Blog</h1>
 <div class="blog-layout">
-  <div class="navigator">
-    <ul>
-      {#each data.months as month}
-        <li><button>{month}</button></li>
-      {/each}
-    </ul>
+  <div class="display">
+    {#each data.titles as post}
+      {@render postCard(post.title, post.added)}
+    {/each}
   </div>
-  <div class="display"></div>
 </div>
+
+{#snippet postCard(title, added)}
+  <Card {title} {added} />
+{/snippet}
 
 <style>
   h1 {
@@ -23,24 +38,12 @@
     margin: 2rem 4rem 0;
     text-transform: lowercase;
   }
-  h1::before,
-  h2::before {
+  h1::before {
     content: "∎ ";
     color: var(--accent);
   }
-  .blog-layout {
+  .display {
     display: grid;
-    grid-template-columns: 1fr 6fr;
-    height: 100%;
-  }
-  .navigator {
-    border-right: solid 1px var(--accent);
-  }
-  button {
-    text-transform: lowercase;
-  }
-  li {
-    font-family: "new-science", sans-serif;
-    list-style: none;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 </style>

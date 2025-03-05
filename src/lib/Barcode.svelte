@@ -1,5 +1,5 @@
 <script>
-  let { string } = $props();
+  let { children, string } = $props();
   import { ENCODINGS } from "./barcodeEncodings";
 
   const toConvert = string
@@ -9,7 +9,7 @@
     .split("");
 
   console.log("Converted", toConvert);
-  let pixelCount = 2;
+  let pixelCount = 0;
 
   function encodeDigits(array) {
     let string = "";
@@ -26,8 +26,7 @@
 
   function encodeStyle() {
     let weightedSum = 0;
-    let styleString =
-      "repeating-linear-gradient(90deg, var(--dark), var(--dark) 2px, ";
+    let styleString = "repeating-linear-gradient(90deg, var(--accent),";
     styleString += encodeDigits(ENCODINGS[103]);
     for (let char in toConvert) {
       const charCode = toConvert[char].charCodeAt(0);
@@ -47,10 +46,13 @@
   const background = $state(styleString);
 </script>
 
-<div style:background></div>
+<div style:background>
+  {@render children()}
+</div>
 
 <style>
   div {
+    position: relative;
     height: 100%;
     width: 100%;
   }
