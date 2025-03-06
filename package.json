@@ -23,6 +23,7 @@
 		"vitest": "^3.0.0"
 	},
 	"dependencies": {
+		"marked": "^15.0.7",
 		"mongodb": "^6.14.0"
 	}
 }
