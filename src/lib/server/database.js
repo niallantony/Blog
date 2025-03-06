@@ -91,6 +91,22 @@ export async function getPost(post) {
   }
 }
 
+export async function postPost(post) {
+  const { title, tags, body } = post;
+  const url = title.split(" ").join("");
+  try {
+    await client.connect();
+    const database = client.db("myBlogDB");
+    const collection = database.collection("posts");
+    const response = await collection.insertOne({ title, tags, body, url });
+    return response;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await client.close();
+  }
+}
+
 export async function findDistinctDates() {
   try {
     await client.connect();
