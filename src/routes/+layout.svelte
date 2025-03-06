@@ -58,6 +58,7 @@
     height: 100svh;
     background-color: var(--dark);
   }
+
   .content {
     flex: 1;
     overflow: scroll;
