@@ -148,6 +148,7 @@
     margin: 1rem 3rem;
     padding: 1rem;
     border-left: solid 1px var(--mid1);
+    overflow: scroll;
   }
   :global(h2) {
     margin-top: 3rem;
@@ -198,7 +199,7 @@
 
   nav > a,
   footer > a {
-    font-family: "new-scienct", sans-serif;
+    font-family: monospace;
     color: var(--accent);
     text-decoration: none;
   }
