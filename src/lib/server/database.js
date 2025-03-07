@@ -93,7 +93,10 @@ export async function getPost(post) {
 
 export async function postPost(post) {
   const { title, tags, body } = post;
-  const url = title.split(" ").join("");
+  const url = title
+    .split(" ")
+    .join("")
+    .replaceAll(/[^a-zA-Z0-9]/g, "");
   try {
     await client.connect();
     const database = client.db("myBlogDB");
