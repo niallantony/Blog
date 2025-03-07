@@ -1,12 +1,15 @@
 <script>
+  import { marked } from "marked";
   const { data } = $props();
-  const { title, tags, date, body } = data.post;
+  const { title, tags, date } = data.post;
+
+  const body = marked.parse(data.post.body);
 </script>
 
 <h1>{title}</h1>
 <p class="date">{date}</p>
 <article class="post">
-  <p>{body}</p>
+  {@html body}
 </article>
 
 <style>
@@ -25,7 +28,6 @@
     align-self: flex-end;
     position: relative;
   }
-
   h1::before {
     content: "∎ ";
     color: var(--accent);
@@ -40,12 +42,11 @@
     flex-direction: column;
     align-content: start;
   }
-  .post > p {
-    margin: 1rem;
+  :global(.post > p) {
+    margin: 1rem 2rem;
   }
-  @media (min-width: 720px) {
-    .post > p {
-      margin: 3rem;
-    }
+  :global(a) {
+    color: var(--mid1);
+    text-decoration: none;
   }
 </style>

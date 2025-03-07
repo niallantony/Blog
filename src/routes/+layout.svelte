@@ -2,7 +2,6 @@
   let { children } = $props();
   let lightMode = $state(true);
   function changeMode() {
-    console.log("Yes");
     lightMode = lightMode ? false : true;
   }
 </script>
@@ -38,16 +37,18 @@
   }
   .dark {
     --light: #fffcf2;
-    --mid1: #ccc5b9;
+    --mid1: #7a9cc6;
     --mid2: #403d39;
     --accent: #eb5e28;
+    --light-accent: #403d39;
     --dark: #252422;
     --hover: #fffcf2;
   }
   .light {
     --hover: #252422;
+    --light-accent: #fff2e0;
     --dark: #fffcf2;
-    --mid1: #ccc5b9;
+    --mid1: #7a9cc6;
     --mid2: #403d39;
     --accent: #eb5e28;
     --light: #252422;
@@ -70,17 +71,112 @@
   .content::-webkit-scrollbar {
     display: none;
   }
-  :global(h1, h2) {
+  :global(li) {
+    color: var(--light);
+    font-family: "new-science", sans-serif;
+  }
+  :global(h2::before) {
+    content: "_ ";
+    color: var(--accent);
+    margin-left: 2rem;
+  }
+  :global(h2::after) {
+    content: ":";
+    color: var(--accent);
+    margin-left: 5px;
+  }
+  :global(h3::before) {
+    content: ". ";
+    color: var(--accent);
+    margin-left: 3rem;
+  }
+
+  :global(blockquote) {
+    margin: 1rem 2rem;
+    background-color: var(--light-accent);
+    padding: 0 1rem;
+    border-left: solid 5px var(--accent);
+  }
+  :global(ul) {
+    list-style-type: none;
+  }
+  :global(ul > li::before) {
+    content: "- ";
+    color: var(--accent);
+    list-style-type: none;
+  }
+  :global(ul, ol) {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  :global(strong) {
+    color: var(--accent);
+  }
+  :global(ol > li::marker) {
+    color: var(--accent);
+    font-family: monospace;
+  }
+  :global(pre) {
+    color: var(--light);
+  }
+  :global(li > p) {
+    display: inline;
+  }
+  :global(blockquote > h2) {
+    margin-top: 1rem;
+  }
+  :global(h1, h2, h3, h4, h5) {
     font-family: "new-science", sans-serif;
     font-weight: 300;
     font-style: normal;
     color: var(--light);
+    margin-top: 1rem;
   }
-  :global(p, a) {
+  :global(h4, h5) {
+    margin-left: 3rem;
+  }
+  :global(hr) {
+    border-color: var(--accent);
+    width: 50%;
+    margin-top: 3rem;
+  }
+  :global(code) {
+    background-color: var(--light-accent);
+  }
+  :global(pre > code) {
+    display: block;
+    margin: 1rem 3rem;
+    padding: 1rem;
+    border-left: solid 1px var(--mid1);
+  }
+  :global(h2) {
+    margin-top: 3rem;
+  }
+  :global(p, li) {
     color: var(--light);
     font-family: "new-science", sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
+  }
+  :global(tbody) {
+    font-family: monospace;
+    background-color: var(--light-accent);
+  }
+  :global(thead) {
+    font-family: monospace;
+    color: var(--dark);
+    background-color: var(--accent);
+  }
+  :global(td, th) {
+    padding: 0.5rem;
+    border: solid 1px var(--accent);
+  }
+  :global(td) {
+    color: var(--light);
+  }
+  :global(table) {
+    border-collapse: collapse;
+    margin: 1rem 3rem;
   }
   nav,
   footer {
@@ -102,6 +198,7 @@
 
   nav > a,
   footer > a {
+    font-family: "new-scienct", sans-serif;
     color: var(--accent);
     text-decoration: none;
   }

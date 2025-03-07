@@ -2,7 +2,6 @@
   import Barcode from "$lib/Barcode.svelte";
   let { title, date, url, image } = $props();
   const clickurl = $state(url);
-  console.log(clickurl);
 </script>
 
 <a href={clickurl} class="card">
@@ -28,8 +27,8 @@
     width: 5px;
     top: -1px;
     right: -1px;
-    border-bottom: solid 1px var(--mid2);
-    border-left: solid 1px var(--mid2);
+    border-bottom: solid 1px var(--mid1);
+    border-left: solid 1px var(--mid1);
   }
   .lower-cutaway1 {
     position: absolute;
@@ -38,8 +37,8 @@
     width: 100px;
     bottom: -1px;
     left: -1px;
-    border-top: solid 1px var(--mid2);
-    border-right: solid 1px var(--mid2);
+    border-top: solid 1px var(--mid1);
+    border-right: solid 1px var(--mid1);
     transform: skewX(45deg) translateX(5px);
   }
   .lower-cutaway2 {
@@ -53,7 +52,7 @@
   .card {
     margin: 1rem;
     padding: 1rem;
-    border: solid 1px var(--mid2);
+    border: solid 1px var(--mid1);
     display: flex;
     flex-direction: column;
     height: 320px;
