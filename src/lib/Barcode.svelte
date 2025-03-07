@@ -35,6 +35,7 @@
     const checkSum = weightedSum % 108;
     styleString += encodeDigits(ENCODINGS[checkSum]);
     styleString += encodeDigits(ENCODINGS[106]);
+    styleString += encodeDigits([2, 8]);
     styleString = styleString.slice(0, -1);
     styleString += ")";
     return styleString;
