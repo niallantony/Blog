@@ -15,10 +15,12 @@ export async function POST({ request }) {
   }
   const content = await getContent(compressed);
   const { title, tags, body } = splitContent(content.toString());
-  const dbResponse = await postPost({ title, tags, body });
+  const { postResponse, tagResponse } = await postPost({ title, tags, body });
 
-  if (dbResponse.acknowledged) {
+  if (postResponse.acknowledged && tagResponse.acknowledged) {
     return new Response("Posted OK!", { status: 200 });
+  } else if (postResponse.acknowledged) {
+    return new Response("Posted OK, but tags not posted", { status: 200 });
   }
   return new Response("Unsuccessful", { status: 500 });
 }

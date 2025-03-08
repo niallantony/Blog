@@ -4,6 +4,17 @@ import { env } from "$env/dynamic/private";
 const uri = env.DBSTRING;
 const client = new MongoClient(uri);
 
+export async function findTopTags(number) {
+  try {
+    await client.connect();
+    const collection = client.db("myBlogDB").collection("posts");
+  } catch (err) {
+    client.log(err);
+  } finally {
+    await client.close();
+  }
+}
+
 export async function findPostTitles() {
   try {
     await client.connect();
@@ -41,6 +52,7 @@ export async function findPostTitles() {
 export async function getPost(post) {
   try {
     await client.connect();
+
     const database = client.db("myBlogDB");
     const collection = database.collection("posts");
     const cursor = await collection.find({
@@ -74,9 +86,19 @@ export async function postPost(post) {
   try {
     await client.connect();
     const database = client.db("myBlogDB");
-    const collection = database.collection("posts");
-    const response = await collection.insertOne({ title, tags, body, url });
-    return response;
+    const postCollection = database.collection("posts");
+    const tagCollection = database.collection("tags");
+    const postResponse = await postCollection.insertOne({
+      title,
+      tags,
+      body,
+      url,
+    });
+    const tagEntries = tags.map((tag) => {
+      return { tag, post: postResponse.insertedId };
+    });
+    const tagResponse = await tagCollection.insertMany(tagEntries, {});
+    return { postResponse, tagResponse };
   } catch (err) {
     console.log(err);
   } finally {
