@@ -1,22 +1,13 @@
 <script>
   import Barcode from "$lib/Barcode.svelte";
   import Card from "./Card.svelte";
+  import Filter from "./Filter.svelte";
 
   let { data } = $props();
-  let active = $state([]);
-
-  console.log(data.titles);
-  function closePost(index) {
-    if (active.includes(index)) {
-      const arrayIndex = active.indexOf(index);
-      active.splice(arrayIndex, 1);
-    } else {
-      active.push(index);
-    }
-  }
 </script>
 
 <h1>Blog</h1>
+<Filter tags={data.topTags} />
 <div class="blog-layout">
   <div class="display">
     {#each data.titles as post}

@@ -7,7 +7,16 @@ const client = new MongoClient(uri);
 export async function findTopTags(number) {
   try {
     await client.connect();
-    const collection = client.db("myBlogDB").collection("posts");
+    const database = client.db("myBlogDB");
+    const collection = database.collection("tags");
+    const pipeline = [
+      { $group: { _id: "$tag", count: { $count: {} } } },
+      { $sort: { count: -1 } },
+      { $limit: number },
+    ];
+    const cursor = await collection.aggregate(pipeline);
+    const data = await cursor.toArray();
+    return data;
   } catch (err) {
     client.log(err);
   } finally {
@@ -40,7 +49,6 @@ export async function findPostTitles() {
         };
       })
       .toArray();
-    console.log(data);
     return data;
   } catch (err) {
     console.log(err);
