@@ -147,6 +147,8 @@
     display: block;
     margin: 1rem 3rem;
     padding: 1rem;
+    color: rgb(0, 0, 0);
+    background-color: rgb(243, 243, 243);
     border-left: solid 1px var(--mid1);
     overflow: scroll;
   }

@@ -1,13 +1,21 @@
 <script>
+  import { goto } from "$app/navigation";
   import Barcode from "$lib/Barcode.svelte";
   import Card from "./Card.svelte";
   import Filter from "./Filter.svelte";
 
   let { data } = $props();
+
+  let filters = $state([]);
+
+  function changeFilters(tags) {
+    filters = [...tags];
+    goto(`?filter=${filters.join(",")}`);
+  }
 </script>
 
 <h1>Blog</h1>
-<Filter tags={data.topTags} />
+<Filter onchange={changeFilters} tags={data.topTags} />
 <div class="blog-layout">
   <div class="display">
     {#each data.titles as post}

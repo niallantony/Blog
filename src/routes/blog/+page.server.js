@@ -1,10 +1,20 @@
-import { findPostTitles, findTopTags } from "$lib/server/database";
+import {
+  findFilteredPostTitles,
+  findPostTitles,
+  findTopTags,
+} from "$lib/server/database";
 
-export async function load() {
-  const titles = await findPostTitles();
+export async function load({ params, url }) {
   let topTags = await findTopTags(10);
   topTags = topTags.map((tag) => tag._id);
-  console.log(topTags);
+  const filterString = url.searchParams.get("filter");
+  let titles;
+  if (filterString) {
+    const filters = filterString.split(",");
+    titles = await findFilteredPostTitles(filters);
+  } else {
+    titles = await findPostTitles();
+  }
 
   return {
     titles,

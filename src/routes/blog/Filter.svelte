@@ -1,7 +1,7 @@
 <script>
   import Icon from "@iconify/svelte";
   import Search from "./Search.svelte";
-  let { tags } = $props();
+  let { tags, onchange } = $props();
 
   let selected = $state([]);
   let searchVisible = $state(false);
@@ -19,20 +19,22 @@
     });
     return notSelected;
   });
-  $inspect(deselected, selected);
 
   function selectTag(tag) {
     selected.push(tag);
+    onchange(selected);
   }
   function deselectTag(tag) {
     selected.splice(selected.indexOf(tag), 1);
+    onchange(selected);
   }
   function toggleSearch() {
     searchVisible = searchVisible ? false : true;
   }
   function searchSubmit(value) {
-    console.log(value);
-    selectTag(value);
+    if (value.length > 0) {
+      selectTag(value);
+    }
     toggleSearch();
   }
 </script>
@@ -99,6 +101,7 @@
     display: flex;
   }
   .tag {
+    font-family: monospace;
     padding: 0.5rem 1rem;
     border-bottom: solid 1px var(--accent);
     margin: 0 1rem;

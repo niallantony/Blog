@@ -23,16 +23,44 @@ export async function findTopTags(number) {
     await client.close();
   }
 }
-
 export async function findPostTitles() {
   try {
     await client.connect();
-
     const database = client.db("myBlogDB");
-
     const collection = database.collection("posts");
 
     const cursor = await collection.find().project({
+      title: 1,
+      _id: 1,
+      url: 1,
+    });
+    const data = await cursor
+      .map((p) => {
+        const date = p._id.getTimestamp().toLocaleDateString("en-GB");
+        const id = p._id.toString();
+        return {
+          title: p.title,
+          id,
+          date,
+          url: `/blog/${p.url}`,
+        };
+      })
+      .toArray();
+    return data;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await client.close();
+  }
+}
+
+export async function findFilteredPostTitles(filters) {
+  try {
+    await client.connect();
+    const database = client.db("myBlogDB");
+    const collection = database.collection("posts");
+
+    const cursor = await collection.find({ tags: { $all: filters } }).project({
       title: 1,
       _id: 1,
       url: 1,

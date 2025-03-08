@@ -15,6 +15,7 @@
 </script>
 
 <input
+  autofocus
   bind:value
   onkeydown={keypress}
   in:slide={{ duration: 900, axis: "x" }}
