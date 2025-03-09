@@ -28,17 +28,41 @@ CREATE TABLE post_tags (
 );
 `;
 
+const getTaggedPosts = `
+WITH tag_ids AS (
+  SELECT tag_id FROM tags WHERE tag = ANY($1)
+), filtered_posts AS (
+  SELECT blog_id
+  FROM post_tags 
+  INNER JOIN tag_ids ON post_tags.tag_id = tag_ids.tag_id 
+  GROUP BY post_tags.blog_id
+  HAVING COUNT(post_tags.blog_id) = (SELECT COUNT(*) FROM tag_ids)
+)
+  SELECT title, url, posted_at 
+  FROM posts
+  INNER JOIN filtered_posts
+  ON posts.blog_id = filtered_posts.blog_id;
+`;
+
 const getTags = `
 SELECT tag, post_count FROM tags INNER JOIN (
 SELECT tag_id, COUNT(blog_id) AS post_count 
   FROM post_tags
   GROUP BY tag_id
   ORDER BY post_count DESC
-  LIMIT 10
+  LIMIT $1
 ) counts ON tags.tag_id = counts.tag_id
 `;
 
-const postBody = `
+const getPosts = `
+SELECT title, url, posted_at FROM posts;
+`;
+
+const getPost = `
+SELECT title, posted_at, body FROM posts WHERE url = $1
+`;
+
+const insertBody = `
 INSERT INTO posts(title, url, body) VALUES ($1, $2, $3) RETURNING blog_id;
 `;
 
@@ -55,9 +79,12 @@ INSERT INTO post_tags(tag_id, blog_id) VALUES ($1, $2);
 `;
 
 export const sql = {
+  getPost,
+  getPosts,
+  getTaggedPosts,
   getTag,
   getTags,
   insertTag,
-  postBody,
+  insertBody,
   insertPostTag,
 };

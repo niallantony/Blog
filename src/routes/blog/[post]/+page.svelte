@@ -2,7 +2,7 @@
   import { Marked } from "marked";
   import { markedHighlight } from "marked-highlight";
   const { data } = $props();
-  const { title, tags, date } = data.post;
+  const { title, body, date } = data.post;
   import hljs from "highlight.js";
 
   const marked = new Marked(
@@ -15,13 +15,13 @@
       },
     }),
   );
-  const body = marked.parse(data.post.body);
+  const html = marked.parse(body);
 </script>
 
 <h1>{title}</h1>
 <p class="date">{date}</p>
 <article class="post">
-  {@html body}
+  {@html html}
 </article>
 
 <style>

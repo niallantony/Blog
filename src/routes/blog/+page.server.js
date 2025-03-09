@@ -1,6 +1,6 @@
 import {
-  findFilteredPostTitles,
-  findPostTitles,
+  getFilteredPostTitles,
+  getPostTitles,
   getTopTags,
 } from "$lib/server/database";
 
@@ -10,9 +10,10 @@ export async function load({ params, url }) {
   let titles;
   if (filterString) {
     const filters = filterString.split(",");
-    titles = await findFilteredPostTitles(filters);
+    console.log(filters);
+    titles = await getFilteredPostTitles(filters);
   } else {
-    titles = await findPostTitles();
+    titles = await getPostTitles();
   }
 
   return {
