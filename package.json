@@ -27,6 +27,7 @@
     "highlight.js": "^11.11.1",
     "marked": "^15.0.7",
     "marked-highlight": "^2.2.1",
-    "mongodb": "^6.14.0"
+    "mongodb": "^6.14.0",
+    "pg": "^8.13.3"
   }
 }

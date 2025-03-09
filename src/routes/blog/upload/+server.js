@@ -15,14 +15,15 @@ export async function POST({ request }) {
   }
   const content = await getContent(compressed);
   const { title, tags, body } = splitContent(content.toString());
-  const { postResponse, tagResponse } = await postPost({ title, tags, body });
+  const { blog_id, tagPosts, error } = await postPost({ title, tags, body });
 
-  if (postResponse.acknowledged && tagResponse.acknowledged) {
-    return new Response("Posted OK!", { status: 200 });
-  } else if (postResponse.acknowledged) {
-    return new Response("Posted OK, but tags not posted", { status: 200 });
+  if (!error) {
+    return new Response(
+      `Posted OK! Blog Id: ${blog_id}, \nTag IDs: ${tagPosts.join("\n")}`,
+      { status: 200 },
+    );
   }
-  return new Response("Unsuccessful", { status: 500 });
+  return new Response(`Unsuccessful. ${error}`, { status: 500 });
 }
 
 function compareHash(compressed, encrypted, timeStamp) {
