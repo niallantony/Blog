@@ -67,6 +67,15 @@ export async function getPost(url) {
   }
 }
 
+export async function updateViews(url) {
+  try {
+    const { rows } = await pool.query(sql.updateViews, [url]);
+    return rows[0];
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 export async function postPost(post) {
   const { title, tags, body } = post;
   const url = title

@@ -6,6 +6,7 @@ CREATE TABLE posts (
   posted_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   title VARCHAR(255) NOT NULL,
   url VARCHAR(255) NOT NULL UNIQUE,
+  views INTEGER DEFAULT 0,
   body TEXT
 );
 
@@ -78,6 +79,10 @@ const insertPostTag = `
 INSERT INTO post_tags(tag_id, blog_id) VALUES ($1, $2);
 `;
 
+const updateViews = `
+UPDATE posts SET views = views + 1 WHERE url = $1 RETURNING views;
+`;
+
 export const sql = {
   getPost,
   getPosts,
@@ -87,4 +92,5 @@ export const sql = {
   insertTag,
   insertBody,
   insertPostTag,
+  updateViews,
 };
