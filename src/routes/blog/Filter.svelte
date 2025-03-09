@@ -5,9 +5,22 @@
   let { tags, onchange } = $props();
 
   let selected = $state([]);
+  let sort = $state("");
+
   let searchVisible = $state(false);
   let sortVisible = $state(false);
   let searchValue = $state();
+
+  let searchString = $derived.by(() => {
+    let searchParams = [];
+    if (selected.length) {
+      searchParams.push(`filter=${selected.join(",")}`);
+    }
+    if (sort) {
+      searchParams.push(`sort=${sort}`);
+    }
+    return searchParams.length ? searchParams.join("&") : "";
+  });
 
   let deselected = $derived.by(() => {
     const notSelected = [];
@@ -21,18 +34,24 @@
     });
     return notSelected;
   });
+
   function changeSort(value) {
     toggleSort();
-    console.log(value);
+    sort = value;
+    submitOptions();
+  }
+  $inspect(searchString);
+  function submitOptions() {
+    onchange(searchString);
   }
 
   function selectTag(tag) {
     selected.push(tag);
-    onchange(selected);
+    submitOptions();
   }
   function deselectTag(tag) {
     selected.splice(selected.indexOf(tag), 1);
-    onchange(selected);
+    submitOptions();
   }
   function toggleSearch() {
     searchVisible = searchVisible ? false : true;
