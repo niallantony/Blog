@@ -4,6 +4,7 @@
   const { data } = $props();
   const { title, body, date } = data.post;
   import hljs from "highlight.js";
+  import Icon from "@iconify/svelte";
 
   const marked = new Marked(
     markedHighlight({
@@ -20,12 +21,28 @@
 
 <h1>{title}</h1>
 <p class="date">{date}</p>
-<p class="views">Views: {data.views}</p>
+<div class="views">
+  <Icon style="font-size:1rem; margin:0;" icon="solar:eye-broken" />{data.views}
+</div>
 <article class="post">
   {@html html}
 </article>
 
 <style>
+  .views {
+    position: relative;
+    width: fit-content;
+    background-color: var(--accent);
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    color: var(--dark);
+    padding: 0.5rem;
+    margin-left: 4rem;
+    transform: translateY(-3.5px);
+    align-content: center;
+    text-align: center;
+  }
   h1 {
     font-size: max(3rem, 2vw);
     margin: 2rem 4rem 0;
