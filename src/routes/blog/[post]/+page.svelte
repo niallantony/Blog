@@ -20,6 +20,7 @@
 
 <h1>{title}</h1>
 <p class="date">{date}</p>
+<p class="views">Views: {data.views}</p>
 <article class="post">
   {@html html}
 </article>
