@@ -1,42 +1,108 @@
 <script>
-  import TextBlock from "./TextBlock.svelte";
-
-  function randomRem() {
-    return Math.floor(Math.random() * 7);
-  }
-  const aboutMe = {
-    "About Me": `
-      I have always had a passion for making things. Growing up, I found an
-      outlet for this in drawing and writing - stories, imaginary maps, board
-      games. I found a passion for engineering at school, and experimented
-      making robots, computer programs and building my own electric guitar. I
-      studied painting at university, and spent many years painting and
-      exhibiting. This was another tool I used as a creative outlet. Now I have
-      come back to computers, and spend my time learning and building, driven by
-      the same curiosity and motivation to create that first led me to pick up a
-      pencil.
-    `,
-  };
-  const beliefs = {
-    "What I Believe": `
-      Technology is at its best when it brings people together, enhances
-      creativity, and makes knowledge more accessible. I believe in a future
-      where software is built responsibly, AI serves as a tool for inclusion,
-      and innovation is driven by curiosity and craft — not hype. As a
-      developer, I want to contribute to this vision by crafting systems that
-      are effective, ethical, and open to all.
-
-    `,
-  };
+  import Icon from "@iconify/svelte";
 </script>
 
 <h1>about</h1>
-<div class="about-layout">
-  <TextBlock textContent={aboutMe} />
-  <TextBlock textContent={beliefs} />
-</div>
+<article class="about-layout">
+  <h2>Who I Am</h2>
+  <p>
+    I’m a software enthusiast with a background in engineering, art, and
+    problem-solving. My journey has taken me from designing board games as a kid
+    to working as an artist and teacher, but I’ve always been drawn to
+    technology’s creative potential. Now, I focus on building software systems,
+    exploring AI, and developing projects that blend engineering with artistry.
+  </p>
+  <h2>What I Am Working On Now</h2>
+  <ul>
+    <li>working on my personal site</li>
+    <li>studying as part of a MSc in Computer Science</li>
+    <li>teaching Data Skills to University Students</li>
+  </ul>
+
+  <div class="columns">
+    <div>
+      <h2>What I Use:</h2>
+      <ul class="icon-list">
+        <li><Icon icon="material-icon-theme:nodejs" />Node.js</li>
+        <li><Icon icon="material-icon-theme:python" />Python</li>
+        <li><Icon icon="skill-icons:expressjs-dark" />Express.js</li>
+        <li><Icon icon="material-icon-theme:svelte" />Svelte</li>
+        <li><Icon icon="material-icon-theme:react" />React</li>
+        <li><Icon icon="material-icon-theme:javascript" />JavaScript</li>
+        <li><Icon icon="material-icon-theme:css" />CSS</li>
+        <li><Icon icon="material-icon-theme:html" />HTML</li>
+        <li><Icon icon="tabler:api" />REST APIs</li>
+        <li><Icon icon="logos:postgresql" />PostgreSQL</li>
+        <li><Icon icon="material-icon-theme:prisma" />Prisma</li>
+        <li><Icon icon="logos:webpack" />Webpack</li>
+        <li><Icon icon="material-icon-theme:jest" />Jest</li>
+        <li><Icon icon="material-icon-theme:git" />Git</li>
+      </ul>
+    </div>
+    <div>
+      <h2>What I Study:</h2>
+      <ul class="icon-list">
+        <li><Icon icon="material-icon-theme:typescript" />TypeScript</li>
+        <li><Icon icon="material-icon-theme:cpp" />C++</li>
+        <li>
+          <Icon icon="carbon:container-software" />Software Fundamentals
+        </li>
+      </ul>
+      <h2>What Interests me:</h2>
+      <ul class="icon-list">
+        <li><Icon icon="icon-park:server" />Backend Development</li>
+        <li><Icon icon="icon-park:robot-one" />Machine Learning & AI</li>
+        <li><Icon icon="icon-park:database-point" />Databases</li>
+        <li><Icon icon="icon-park:eyes" />Graphics and Visualisation</li>
+        <li><Icon icon="icon-park:network-tree" />Computer Systems</li>
+        <li><Icon icon="icon-park:format-brush" />Creative Coding</li>
+        <li><Icon icon="icon-park:vr-glasses" />VR/AR</li>
+      </ul>
+    </div>
+  </div>
+  <h2>What I Believe</h2>
+  <p>
+    Technology is at its best when it brings people together, enhances
+    creativity, and makes knowledge more accessible. I believe in a future where
+    software is built responsibly, AI serves as a tool for inclusion, and
+    innovation is driven by curiosity and craft — not hype. As a developer, I
+    want to contribute to this vision by crafting systems that are effective,
+    ethical, and open to all.
+  </p>
+  <h2>What I Do Outside the Computer</h2>
+  <p>
+    When I am not relaxing with my beautiful wife and two oddball cats, I like
+    to occupy my time with one of many hobbies.
+  </p>
+  <ul class="icon-list">
+    <li><Icon icon="icon-park:book-open" />Reading</li>
+    <li><Icon icon="icon-park:pencil" />Drawing & Painting</li>
+    <li><Icon icon="icon-park:spanner" />DIY</li>
+    <li><Icon icon="icon-park:game" />Games</li>
+    <li><Icon icon="icon-park:tree-two" />Gardening</li>
+  </ul>
+</article>
 
 <style>
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(326px, 1fr));
+    border: dashed 1px var(--accent);
+    margin-top: 2rem;
+    padding: 1rem;
+    padding-bottom: 3rem;
+    position: relative;
+  }
+  .columns::before {
+    content: "technology";
+    position: absolute;
+    top: -16px;
+    left: 1rem;
+    padding: 0.5rem;
+    color: var(--accent);
+    font-family: monospace;
+    background-color: var(--dark);
+  }
   h1 {
     font-size: max(3rem, 6vw);
     margin: 2rem 4rem 0;
@@ -45,10 +111,25 @@
     content: "∎ ";
     color: var(--accent);
   }
+  li {
+    font-family: monospace;
+    margin: 0.5rem 0;
+  }
+  .icon-list > li::before {
+    content: "";
+  }
+  :global(li > svg) {
+    margin-right: 1rem;
+    transform: scale(120%) translateY(2px);
+  }
   .about-layout {
     display: grid;
     grid-template-columns: 1fr;
     max-width: min(100%, 720px);
     align-self: center;
+  }
+  p {
+    font-family: monospace;
+    line-height: 1.8;
   }
 </style>
