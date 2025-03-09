@@ -6,6 +6,7 @@ CREATE TABLE posts (
   posted_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   title VARCHAR(255) NOT NULL,
   url VARCHAR(255) NOT NULL UNIQUE,
+  views INTEGER DEFAULT 0,
   body TEXT
 );
 
@@ -38,10 +39,10 @@ WITH tag_ids AS (
   GROUP BY post_tags.blog_id
   HAVING COUNT(post_tags.blog_id) = (SELECT COUNT(*) FROM tag_ids)
 )
-  SELECT title, url, posted_at 
+  SELECT title, url, posted_at, views
   FROM posts
   INNER JOIN filtered_posts
-  ON posts.blog_id = filtered_posts.blog_id;
+  ON posts.blog_id = filtered_posts.blog_id
 `;
 
 const getTags = `
@@ -55,7 +56,7 @@ SELECT tag_id, COUNT(blog_id) AS post_count
 `;
 
 const getPosts = `
-SELECT title, url, posted_at FROM posts;
+SELECT title, url, posted_at, views FROM posts
 `;
 
 const getPost = `
@@ -78,6 +79,14 @@ const insertPostTag = `
 INSERT INTO post_tags(tag_id, blog_id) VALUES ($1, $2);
 `;
 
+const updateViews = `
+UPDATE posts SET views = views + 1 WHERE url = $1 RETURNING views;
+`;
+
+const orderByOldest = ` ORDER BY posted_at ASC `;
+const orderByNewest = ` ORDER BY posted_at DESC`;
+const orderByViews = ` ORDER BY views DESC`;
+
 export const sql = {
   getPost,
   getPosts,
@@ -87,4 +96,8 @@ export const sql = {
   insertTag,
   insertBody,
   insertPostTag,
+  updateViews,
+  orderByViews,
+  orderByNewest,
+  orderByOldest,
 };

@@ -1,11 +1,26 @@
 <script>
   import Icon from "@iconify/svelte";
   import Search from "./Search.svelte";
+  import Sort from "./Sort.svelte";
   let { tags, onchange } = $props();
 
   let selected = $state([]);
+  let sort = $state("");
+
   let searchVisible = $state(false);
+  let sortVisible = $state(false);
   let searchValue = $state();
+
+  let searchString = $derived.by(() => {
+    let searchParams = [];
+    if (selected.length) {
+      searchParams.push(`filter=${selected.join(",")}`);
+    }
+    if (sort) {
+      searchParams.push(`sort=${sort}`);
+    }
+    return searchParams.length ? searchParams.join("&") : "";
+  });
 
   let deselected = $derived.by(() => {
     const notSelected = [];
@@ -20,13 +35,22 @@
     return notSelected;
   });
 
+  function changeSort(value) {
+    toggleSort();
+    sort = value;
+    submitOptions();
+  }
+  function submitOptions() {
+    onchange(searchString);
+  }
+
   function selectTag(tag) {
     selected.push(tag);
-    onchange(selected);
+    submitOptions();
   }
   function deselectTag(tag) {
     selected.splice(selected.indexOf(tag), 1);
-    onchange(selected);
+    submitOptions();
   }
   function toggleSearch() {
     searchVisible = searchVisible ? false : true;
@@ -36,6 +60,9 @@
       selectTag(value);
     }
     toggleSearch();
+  }
+  function toggleSort() {
+    sortVisible = sortVisible ? false : true;
   }
 </script>
 
@@ -49,6 +76,12 @@
         style="font-size: 2rem;  margin: .5rem;"
       />
     </button>
+    <button onclick={toggleSort}>
+      <Icon
+        icon="material-symbols:sort"
+        style="font-size: 2rem; margin: .5rem;"
+      />
+    </button>
     <div class="filters">
       {#each deselected as tag}
         <button class="tag" onclick={() => selectTag(tag)}>{tag}</button>
@@ -56,7 +89,9 @@
     </div>
   {/if}
 </div>
-
+{#if sortVisible}
+  <Sort {changeSort} />
+{/if}
 <div class="selected-bar">
   {#each selected as tag}
     <button class="tag selected" onclick={() => deselectTag(tag)}

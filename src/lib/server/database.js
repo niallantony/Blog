@@ -17,9 +17,16 @@ export async function getTopTags(number) {
   }
 }
 
-export async function getPostTitles() {
+export async function getPostTitles(sort) {
+  const orderString =
+    sort === "most viewed"
+      ? sql.orderByViews
+      : sort === "oldest"
+        ? sql.orderByOldest
+        : sql.orderByNewest;
+  const query = sql.getPosts + orderString;
   try {
-    let { rows } = await pool.query(sql.getPosts);
+    let { rows } = await pool.query(query);
     const data = rows.map((row) => {
       return {
         title: row.title,
@@ -34,9 +41,16 @@ export async function getPostTitles() {
   }
 }
 
-export async function getFilteredPostTitles(filters) {
+export async function getFilteredPostTitles(filters, sort) {
+  const orderString =
+    sort === "most viewed"
+      ? sql.orderByViews
+      : sort === "oldest"
+        ? sql.orderByOldest
+        : sql.orderByNewest;
+  const query = sql.getTaggedPosts + orderString;
   try {
-    let { rows } = await pool.query(sql.getTaggedPosts, [filters]);
+    let { rows } = await pool.query(query, [filters]);
     const data = rows.map((row) => {
       return {
         title: row.title,
@@ -44,7 +58,6 @@ export async function getFilteredPostTitles(filters) {
         date: row.posted_at.toLocaleDateString("en-GB"),
       };
     });
-    console.log(data);
     return data;
   } catch (err) {
     console.error(err);
@@ -62,6 +75,15 @@ export async function getPost(url) {
       };
     });
     return data[0];
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function updateViews(url) {
+  try {
+    const { rows } = await pool.query(sql.updateViews, [url]);
+    return rows[0];
   } catch (err) {
     console.error(err);
   }

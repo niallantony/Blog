@@ -3,14 +3,14 @@
   import Barcode from "$lib/Barcode.svelte";
   import Card from "./Card.svelte";
   import Filter from "./Filter.svelte";
+  import Sort from "./Sort.svelte";
 
   let { data } = $props();
 
   let filters = $state([]);
 
-  function changeFilters(tags) {
-    filters = [...tags];
-    goto(`?filter=${filters.join(",")}`);
+  function changeFilters(string) {
+    goto(`?${string}`);
   }
 </script>
 
