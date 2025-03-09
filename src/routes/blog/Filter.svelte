@@ -40,7 +40,6 @@
     sort = value;
     submitOptions();
   }
-  $inspect(searchString);
   function submitOptions() {
     onchange(searchString);
   }

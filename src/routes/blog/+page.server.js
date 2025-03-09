@@ -7,13 +7,16 @@ import {
 export async function load({ params, url }) {
   let topTags = await getTopTags(10);
   const filterString = url.searchParams.get("filter");
+  const sortString = url.searchParams.get("sort")
+    ? url.searchParams.get("sort")
+    : null;
   let titles;
   if (filterString) {
     const filters = filterString.split(",");
     console.log(filters);
-    titles = await getFilteredPostTitles(filters);
+    titles = await getFilteredPostTitles(filters, sortString);
   } else {
-    titles = await getPostTitles();
+    titles = await getPostTitles(sortString);
   }
 
   return {
