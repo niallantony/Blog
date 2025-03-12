@@ -25,6 +25,8 @@
     "vitest": "^3.0.0"
   },
   "dependencies": {
+    "@sveltejs/adapter-node": "^5.2.12",
+    "dotenv": "^16.4.7",
     "highlight.js": "^11.11.1",
     "marked": "^15.0.7",
     "marked-highlight": "^2.2.1",
