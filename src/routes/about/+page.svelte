@@ -81,6 +81,24 @@
     <li><Icon icon="icon-park:game" />Games</li>
     <li><Icon icon="icon-park:tree-two" />Gardening</li>
   </ul>
+  <h2>How to Contact Me:</h2>
+  <ul class="icon-list">
+    <li>
+      <a href="http://https://github.com/niallantony"
+        ><Icon icon="icon-park:github" />Github</a
+      >
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/niall-craven-22557331/"
+        ><Icon icon="skill-icons:linkedin" />LinkedIn</a
+      >
+    </li>
+    <li>
+      <a href="mailto:craven.niall@googlemail.com"
+        ><Icon icon="material-icon-theme:email" />craven.niall@googlemail.com</a
+      >
+    </li>
+  </ul>
 </article>
 
 <style>

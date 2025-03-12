@@ -34,7 +34,6 @@ export async function getPostTitles(sort) {
         date: row.posted_at.toLocaleDateString("en-GB"),
       };
     });
-    console.log(data);
     return data;
   } catch (err) {
     console.error(err);

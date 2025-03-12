@@ -13,7 +13,6 @@ export async function load({ params, url }) {
   let titles;
   if (filterString) {
     const filters = filterString.split(",");
-    console.log(filters);
     titles = await getFilteredPostTitles(filters, sortString);
   } else {
     titles = await getPostTitles(sortString);
