@@ -9,7 +9,7 @@ export async function GET({ request, url }) {
     const res = await dbx.filesGetThumbnailV2({
       format: "jpeg",
       mode: "fitone_bestfit",
-      size: "w128h128",
+      size: "w256h256",
       resource: {
         ".tag": "path",
         path: path,
