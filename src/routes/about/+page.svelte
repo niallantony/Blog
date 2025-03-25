@@ -44,7 +44,7 @@
       <h2>What I Study:</h2>
       <ul class="icon-list">
         <li><Icon icon="material-icon-theme:typescript" />TypeScript</li>
-        <li><Icon icon="material-icon-theme:jave" />Java</li>
+        <li><Icon icon="material-icon-theme:java" />Java</li>
         <li></li>
         <li><Icon icon="logos:google-cloud-functions" />Cloud Engineering</li>
         <li></li>
