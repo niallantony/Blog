@@ -32,6 +32,7 @@ export async function getPostTitles(sort) {
         title: row.title,
         url: `/blog/${row.url}`,
         date: row.posted_at.toLocaleDateString("en-GB"),
+        image: row.imagepath,
       };
     });
     return data;
@@ -55,6 +56,7 @@ export async function getFilteredPostTitles(filters, sort) {
         title: row.title,
         url: `/blog/${row.url}`,
         date: row.posted_at.toLocaleDateString("en-GB"),
+        image: row.imagepath,
       };
     });
     return data;
@@ -89,7 +91,7 @@ export async function updateViews(url) {
 }
 
 export async function postPost(post) {
-  const { title, tags, body } = post;
+  const { title, tags, body, imagePath } = post;
   const url = title
     .split(" ")
     .join("")
@@ -97,7 +99,12 @@ export async function postPost(post) {
   try {
     await pool.query("BEGIN;");
 
-    const insertPost = await pool.query(sql.insertBody, [title, url, body]);
+    const insertPost = await pool.query(sql.insertBody, [
+      title,
+      url,
+      body,
+      imagePath,
+    ]);
     const { blog_id } = insertPost.rows[0];
 
     const tagPosts = [];

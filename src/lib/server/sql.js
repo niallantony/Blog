@@ -6,6 +6,7 @@ CREATE TABLE posts (
   posted_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   title VARCHAR(255) NOT NULL,
   url VARCHAR(255) NOT NULL UNIQUE,
+  imagePatch VARCHAR(255),
   views INTEGER DEFAULT 0,
   body TEXT
 );
@@ -39,7 +40,7 @@ WITH tag_ids AS (
   GROUP BY post_tags.blog_id
   HAVING COUNT(post_tags.blog_id) = (SELECT COUNT(*) FROM tag_ids)
 )
-  SELECT title, url, posted_at, views
+  SELECT title, url, posted_at, views, imagePath
   FROM posts
   INNER JOIN filtered_posts
   ON posts.blog_id = filtered_posts.blog_id
@@ -56,15 +57,15 @@ SELECT tag_id, COUNT(blog_id) AS post_count
 `;
 
 const getPosts = `
-SELECT title, url, posted_at, views FROM posts
+SELECT title, url, posted_at, views, imagePath FROM posts
 `;
 
 const getPost = `
-SELECT title, posted_at, body FROM posts WHERE url = $1
+SELECT title, posted_at, body, imagePath FROM posts WHERE url = $1
 `;
 
 const insertBody = `
-INSERT INTO posts(title, url, body) VALUES ($1, $2, $3) RETURNING blog_id;
+INSERT INTO posts(title, url, body, imagePath) VALUES ($1, $2, $3, $4) RETURNING blog_id;
 `;
 
 const getTag = `

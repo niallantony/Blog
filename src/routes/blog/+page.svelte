@@ -19,13 +19,13 @@
 <div class="blog-layout">
   <div class="display">
     {#each data.titles as post}
-      {@render postCard(post.title, post.date, post.url)}
+      {@render postCard(post.title, post.date, post.url, post.image)}
     {/each}
   </div>
 </div>
 
-{#snippet postCard(title, date, url)}
-  <Card {title} {date} {url} />
+{#snippet postCard(title, date, url, image)}
+  <Card {title} {date} {url} {image} />
 {/snippet}
 
 <style>

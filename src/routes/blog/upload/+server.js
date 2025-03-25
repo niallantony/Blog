@@ -9,13 +9,18 @@ const secret = env.SECRET;
 
 export async function POST({ request }) {
   const req = await request.json();
-  const { compressed, timeStamp, encrypted } = req;
+  const { compressed, timeStamp, encrypted, imagePath } = req;
   if (!compareHash(compressed, encrypted, timeStamp)) {
     return new Response("Unauthorised post", { status: 401 });
   }
   const content = await getContent(compressed);
   const { title, tags, body } = splitContent(content.toString());
-  const { blog_id, tagPosts, error } = await postPost({ title, tags, body });
+  const { blog_id, tagPosts, error } = await postPost({
+    title,
+    tags,
+    body,
+    imagePath,
+  });
 
   if (!error) {
     return new Response(

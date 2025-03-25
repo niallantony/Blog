@@ -1,13 +1,15 @@
 <script>
   import Barcode from "$lib/Barcode.svelte";
   let { title, date, url, image } = $props();
+  console.log(image);
+
   const clickurl = $state(url);
 </script>
 
 <a href={clickurl} class="card">
   <Barcode string={title}>
     {#if image}
-      <img src={image.src} alt={image.alt} />
+      <img src={`/blog/thumbnail?path=${image}`} alt={`${title} thumbnail`} />
     {:else}
       <div class="noimg"><p>no_img</p></div>
     {/if}
