@@ -1,7 +1,6 @@
 <script>
   import Barcode from "$lib/Barcode.svelte";
   let { title, date, url, image } = $props();
-  console.log(image);
 
   const clickurl = $state(url);
 </script>

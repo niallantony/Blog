@@ -1,9 +1,28 @@
 import { Dropbox } from "dropbox";
 import { env } from "$env/dynamic/private";
+import { Buffer } from "buffer";
 
 export async function GET({ request, url }) {
   const path = url.searchParams.get("path");
-  const dbx = new Dropbox({ accessToken: env.DROPBOX_API_TOKEN });
+
+  const refreshToken = env.DROPBOX_REFRESH_TOKEN;
+  const appKey = env.DROPBOX_APP_KEY;
+  const appSecret = env.DROPBOX_APP_SECRET;
+  const encodedAuth = Buffer.from(`${appKey}:${appSecret}`).toString("base64");
+
+  const response = await fetch("https://api.dropbox.com/oauth2/token", {
+    method: "POST",
+    headers: {
+      Authorization: "Basic " + encodedAuth,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      grant_type: "refresh_token",
+      refresh_token: refreshToken,
+    }),
+  });
+  const data = await response.json();
+  const dbx = new Dropbox({ accessToken: data.access_token });
 
   try {
     const res = await dbx.filesGetThumbnailV2({
@@ -16,11 +35,8 @@ export async function GET({ request, url }) {
       },
     });
     if (res.status !== 200) {
-      console.log(res);
-      console.log("Not OK!");
       return new Response(res.result, { status: 500 });
     }
-    console.log(res.result);
     return new Response(res.result.fileBinary, {
       status: 200,
       headers: {

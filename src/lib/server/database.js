@@ -110,13 +110,15 @@ export async function postPost(post) {
     const tagPosts = [];
 
     for (const tag of tags) {
-      const { rows } = await pool.query(sql.getTag, [tag]);
-      if (!rows.length) {
-        const newTag = await pool.query(sql.insertTag, [tag]);
-        rows.push(newTag.rows[0]);
+      if (tag.trim().length) {
+        const { rows } = await pool.query(sql.getTag, [tag]);
+        if (!rows.length) {
+          const newTag = await pool.query(sql.insertTag, [tag]);
+          rows.push(newTag.rows[0]);
+        }
+        await pool.query(sql.insertPostTag, [rows[0].tag_id, blog_id]);
+        tagPosts.push(rows[0].tag_id);
       }
-      await pool.query(sql.insertPostTag, [rows[0].tag_id, blog_id]);
-      tagPosts.push(rows[0].tag_id);
     }
 
     await pool.query("COMMIT;");
