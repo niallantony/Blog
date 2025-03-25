@@ -9,7 +9,9 @@
 <a href={clickurl} class="card">
   <Barcode string={title}>
     {#if image}
-      <img src={`/blog/thumbnail?path=${image}`} alt={`${title} thumbnail`} />
+      <div class="imgframe">
+        <img src={`/blog/thumbnail?path=${image}`} alt={`${title} thumbnail`} />
+      </div>
     {:else}
       <div class="noimg"><p>no_img</p></div>
     {/if}
@@ -95,9 +97,13 @@
     align-self: center;
   }
   .noimg,
-  img {
+  .imgframe {
     width: 100%;
     height: 70%;
+    overflow: hidden;
+  }
+  img {
+    width: 100%;
   }
   .noimg {
     display: flex;
