@@ -17,6 +17,7 @@
     <li>working on my personal site</li>
     <li>studying as part of a MSc in Computer Science</li>
     <li>teaching Data Skills to University Students</li>
+    <li>earning my Google Cloud Engineer certificate</li>
   </ul>
 
   <div class="columns">
@@ -43,7 +44,10 @@
       <h2>What I Study:</h2>
       <ul class="icon-list">
         <li><Icon icon="material-icon-theme:typescript" />TypeScript</li>
-        <li><Icon icon="material-icon-theme:cpp" />C++</li>
+        <li><Icon icon="material-icon-theme:jave" />Java</li>
+        <li></li>
+        <li><Icon icon="logos:google-cloud-functions" />Cloud Engineering</li>
+        <li></li>
         <li>
           <Icon icon="carbon:container-software" />Software Fundamentals
         </li>
@@ -53,10 +57,9 @@
         <li><Icon icon="icon-park:server" />Backend Development</li>
         <li><Icon icon="icon-park:robot-one" />Machine Learning & AI</li>
         <li><Icon icon="icon-park:database-point" />Databases</li>
-        <li><Icon icon="icon-park:eyes" />Graphics and Visualisation</li>
         <li><Icon icon="icon-park:network-tree" />Computer Systems</li>
         <li><Icon icon="icon-park:format-brush" />Creative Coding</li>
-        <li><Icon icon="icon-park:vr-glasses" />VR/AR</li>
+        <li><Icon icon="icon-park:eyes" />Graphics and Visualisation</li>
       </ul>
     </div>
   </div>
@@ -75,10 +78,22 @@
     to occupy my time with one of many hobbies.
   </p>
   <ul class="icon-list">
-    <li><Icon icon="icon-park:book-open" />Reading</li>
-    <li><Icon icon="icon-park:pencil" />Drawing & Painting</li>
+    <li>
+      <a href="https://app.thestorygraph.com/profile/niallantony"
+        ><Icon icon="icon-park:book-open" />Reading</a
+      >
+    </li>
+    <li>
+      <a href="https://www.behance.net/niallantony"
+        ><Icon icon="icon-park:pencil" />Drawing & Painting</a
+      >
+    </li>
     <li><Icon icon="icon-park:spanner" />DIY</li>
-    <li><Icon icon="icon-park:game" />Games</li>
+    <li>
+      <a href="https://steamcommunity.com/profiles/76561197972290812/"
+        ><Icon icon="icon-park:game" />Games</a
+      >
+    </li>
     <li><Icon icon="icon-park:tree-two" />Gardening</li>
   </ul>
   <h2>How to Contact Me:</h2>
