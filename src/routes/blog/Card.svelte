@@ -100,9 +100,6 @@
     height: 70%;
     overflow: hidden;
   }
-  img {
-    width: 100%;
-  }
   .noimg {
     display: flex;
     justify-content: center;
