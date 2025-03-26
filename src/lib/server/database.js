@@ -3,9 +3,13 @@ import { env } from "$env/dynamic/private";
 import { sql } from "./sql";
 
 const { Pool } = pg;
-const pool = new Pool({
+const config = {
   connectionString: env.PSQL_URL,
-});
+};
+if (env.DATABASE_HOST != "localhost") {
+  config.ssl = "require";
+}
+const pool = new Pool(config);
 
 export async function getTopTags(number) {
   try {
