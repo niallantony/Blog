@@ -3,14 +3,13 @@
   let { title, date, url, image } = $props();
 
   const clickurl = $state(url);
+  const imageUrl = `/blog/thumbnail?path=${image}`;
 </script>
 
 <a href={clickurl} class="card">
   <Barcode string={title}>
     {#if image}
-      <div class="imgframe">
-        <img src={`/blog/thumbnail?path=${image}`} alt={`${title} thumbnail`} />
-      </div>
+      <div class="imgframe" style="background-image: url({imageUrl});"></div>
     {:else}
       <div class="noimg"><p>no_img</p></div>
     {/if}
@@ -108,6 +107,9 @@
     display: flex;
     justify-content: center;
     align-content: center;
+  }
+  .noimg,
+  .imgframe {
     background: repeating-linear-gradient(
         45deg,
         transparent,

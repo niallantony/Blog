@@ -27,8 +27,8 @@ export async function GET({ request, url }) {
   try {
     const res = await dbx.filesGetThumbnailV2({
       format: "jpeg",
-      mode: "fitone_bestfit",
-      size: "w256h256",
+      mode: "bestfit",
+      size: "w640h480",
       resource: {
         ".tag": "path",
         path: path,
