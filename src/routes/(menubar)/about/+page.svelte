@@ -4,6 +4,7 @@
 
 <h1>about</h1>
 <article class="about-layout">
+  <a href="cv.pdf">Download my CV (pdf)</a>
   <h2>Who I Am</h2>
   <p>
     I’m a software enthusiast with a background in engineering, art, and
