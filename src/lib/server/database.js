@@ -7,7 +7,7 @@ const config = {
   connectionString: env.PSQL_URL,
 };
 if (env.DATABASE_HOST != "localhost") {
-  config.ssl = "require";
+  config.ssl = true;
 }
 const pool = new Pool(config);
 
