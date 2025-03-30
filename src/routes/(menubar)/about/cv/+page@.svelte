@@ -93,7 +93,7 @@
         </div>
       </div>
       <div class="job">
-        <h3>Online Tutor - English Language</h3>
+        <h3>Online Lecturer - English Language</h3>
         <div class="job-info">
           <div class="job-loc">
             <Icon icon="ri:map-pin-2-line" />Korea Cyber University - Seoul,
@@ -124,12 +124,15 @@
   </div>
   <div class="column right">
     <div class="big-section intro">
-      <h2>Profile</h2>
+      <h2>Intro</h2>
       <p>
-        Motivated developer with extensive experience in online education,
-        looking to transition into backend development. Proficient in Python,
-        Javascript and currently studying Java (Spring). Wealth of experience
-        developing web applications with Postgres, Express, React and Node.js.
+        Motivated developer with extensive experience in visual design and
+        online education, looking to transition into backend development.
+      </p>
+      <p>
+        Proficient in Python, Javascript and currently studying Java (Spring).
+        Wealth of experience developing web applications with Postgres, Express,
+        React and Node.js.
       </p>
     </div>
     <div class="big-section skills">
@@ -159,6 +162,46 @@
           >
         </li>
         <li><strong>Languages</strong><span>English, Korean</span></li>
+      </ul>
+    </div>
+    <div class="big-section core">
+      <h2>Profile</h2>
+      <ul>
+        <li>
+          <Icon
+            style="width:20px; height:20px;"
+            icon="icon-park:communication"
+          />
+          <strong>Communication:</strong>
+          <span
+            >10 years experience in education and visual design has given me the
+            skills to clearly and efficiently communicate and convey complex
+            ideas, abstract concepts and customers' visions.</span
+          >
+        </li>
+        <li>
+          <Icon style="width:20px; height:20px;" icon="icon-park:telescope" />
+          <strong>Curiosity:</strong><span>
+            The ability to adapt and thrive in various different domains, and to
+            continuously improve my skills comes from a deep desire to learn new
+            skills and hear new ideas.</span
+          >
+        </li>
+        <li>
+          <Icon style="width:20px; height:20px;" icon="icon-park:brain" />
+          <strong>Creativity:</strong><span>
+            A unique perspective on problems and ability to find creative
+            solutions is something I bring into software design and development.</span
+          >
+        </li>
+        <li>
+          <Icon style="width:20px; height:20px;" icon="icon-park:compass" />
+          <strong>Craftsmanship:</strong><span>
+            A love of programming that goes back to childhood: while I get
+            excited by new fields and opportunities, I prioritise strong
+            fundamental knowledge of a core systems and technologies.</span
+          >
+        </li>
       </ul>
     </div>
   </div>
@@ -313,5 +356,17 @@
     left: -9px;
     bottom: -28px;
     color: var(--accent);
+  }
+  .core ul {
+    padding-left: 16px;
+  }
+  .core li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    grid-template-rows: 16px;
+    margin-bottom: 10px;
+  }
+  .core span {
+    grid-column: 2 / 3;
   }
 </style>
