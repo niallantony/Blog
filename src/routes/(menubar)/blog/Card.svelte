@@ -2,8 +2,8 @@
   import Barcode from "$lib/Barcode.svelte";
   let { title, date, url, image } = $props();
 
-  let clickurl = $state(url);
-  let imageUrl = `/blog/thumbnail?path=${image}`;
+  let clickurl = $derived(url);
+  let imageUrl = $derived(`/blog/thumbnail?path=${image}`);
 </script>
 
 <a href={clickurl} class="card">
