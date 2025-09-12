@@ -49,6 +49,8 @@
     display: flex;
     flex-direction: column;
     align-content: start;
+    width: 100svw;
+    box-sizing: border-box;
   }
   :global(.post > p) {
     margin: 1rem 2rem;
@@ -56,5 +58,9 @@
   :global(a) {
     color: var(--mid1);
     text-decoration: none;
+  }
+  .content {
+    position: relative;
+    overflow: auto;
   }
 </style>

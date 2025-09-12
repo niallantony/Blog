@@ -7,7 +7,10 @@
 <a href={url} class="card">
   <Barcode string={title}>
     {#if image}
-      <div class="imgframe" style="background-image: url({image});"></div>
+      <div
+        class="imgframe"
+        style="background-image: url({image}); background-position: center; background-size: cover; background-repeat: no-repeat"
+      ></div>
     {:else}
       <div class="noimg"><p>no_img</p></div>
     {/if}

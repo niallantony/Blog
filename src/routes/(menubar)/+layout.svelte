@@ -1,5 +1,5 @@
 <script>
-import { base } from "$app/paths"
+  import { base } from "$app/paths";
   let { children } = $props();
   let lightMode = $state(true);
   function changeMode() {
@@ -146,7 +146,6 @@ import { base } from "$app/paths"
   }
   :global(pre > code) {
     display: block;
-    margin: 1rem 3rem;
     padding: 1rem;
     color: rgb(0, 0, 0);
     background-color: rgb(243, 243, 243);
