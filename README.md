@@ -1,9 +1,9 @@
 # Personal Homepage
 
-[Visit my site!](https://renewed-hedwiga-niallantony-85e6d38f.koyeb.app)
+[Visit my site!](https://niallantony.github.io/Blog)
 
 A personal homepage to showcase myself as a developer. 
-Created with SvelteKit and node.js (back-end for handling blog posts)
+Created with SvelteKit
 
 ## About
 
@@ -19,10 +19,8 @@ Key projects to showcase
 
 Personal blog and learning journal
 
-Uploading of blog posts is done through an upload API in the same SvelteKit application, and a local application which encrypts, compresses and sends information.> 
-Thumbnails and images are stored in cloud file storage and retrieved dynamically - although more optimisation is needed. 
-Blog contents are kept in a PostgreSQL database, and tags are collected in a relational database to retrieve the most popular tags to display.
-Currently posts are only searchable through tags, but in the future I plan to implement full text searching as well as smart extraction of key words from posts.
+Blog posts are written in markdown and transformed into Svelte pages using the mdsvex library at build time.
+
 ![blog menu](./static/blogmenu.png)
 ![blog post](./static/blogpost.png)
 
