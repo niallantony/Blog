@@ -39,7 +39,7 @@
   }
 </script>
 
-<h1>Blog</h1>
+<h1>Blog:</h1>
 <Filter onchange={changeFilters} onSort={changeSort} tags={data.tags} />
 <div class="blog-layout">
   <div class="display">
