@@ -1,3 +1,5 @@
+import { base } from "$app/paths";
+
 const covers = import.meta.glob("/src/posts/**/cover.jpg", {
   eager: true,
   as: "url",
