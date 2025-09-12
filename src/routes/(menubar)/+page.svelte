@@ -59,6 +59,7 @@
   }
 
   p {
+    margin-top: 2rem;
     margin-left: 3rem;
     padding-left: 1rem;
     border-left: solid 1px var(--accent);
