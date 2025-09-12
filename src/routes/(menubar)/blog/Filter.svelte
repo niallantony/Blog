@@ -11,17 +11,6 @@
   let sortVisible = $state(false);
   let searchValue = $state();
 
-  let searchString = $derived.by(() => {
-    let searchParams = [];
-    if (selected.length) {
-      searchParams.push(`filter=${selected.join(",")}`);
-    }
-    if (sort) {
-      searchParams.push(`sort=${sort}`);
-    }
-    return searchParams.length ? searchParams.join("&") : "";
-  });
-
   let deselected = $derived.by(() => {
     const notSelected = [];
     if (!tags) {
@@ -41,13 +30,20 @@
     submitOptions();
   }
   function submitOptions() {
-    onchange(searchString);
+    onchange(selected);
   }
 
   function selectTag(tag) {
     selected.push(tag);
     submitOptions();
   }
+
+  function pushSearches(tags) {
+    tags.forEach((tag) => {
+      selected.push(tag);
+    });
+  }
+
   function deselectTag(tag) {
     selected.splice(selected.indexOf(tag), 1);
     submitOptions();
@@ -56,9 +52,11 @@
     searchVisible = searchVisible ? false : true;
   }
   function searchSubmit(value) {
-    if (value.length > 0) {
-      selectTag(value);
+    const tokens = value.split(" ");
+    if (tokens.length > 0) {
+      pushSearches(tokens);
     }
+    submitOptions();
     toggleSearch();
   }
   function toggleSort() {
