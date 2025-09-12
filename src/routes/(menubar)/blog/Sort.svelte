@@ -7,7 +7,6 @@
   Sort by:
   <button onclick={() => changeSort("oldest")}>oldest</button>
   <button onclick={() => changeSort("newest")}>newest</button>
-  <button onclick={() => changeSort("most viewed")}>most viewed</button>
 </div>
 
 <style>

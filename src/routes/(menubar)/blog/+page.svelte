@@ -32,7 +32,7 @@
 </script>
 
 <h1>Blog</h1>
-<Filter onchange={changeFilters} tags={data.topTags} />
+<Filter onchange={changeFilters} tags={data.tags} />
 <div class="blog-layout">
   <div class="display">
     {#each filtered as post}

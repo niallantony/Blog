@@ -3,12 +3,12 @@ import { getPosts } from "$lib/posts";
 export const prerender = true;
 
 export async function entries() {
-  const posts = await getPosts();
+  const { postEntries: posts } = await getPosts();
   return posts.map((p) => ({ post: p.slug }));
 }
 
 export async function load({ params }) {
-  const posts = await getPosts();
+  const { postEntries: posts, tags } = await getPosts();
 
   const index = posts.findIndex((p) => p.slug === params.post);
 

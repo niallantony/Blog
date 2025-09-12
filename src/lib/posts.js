@@ -30,5 +30,29 @@ export async function getPosts() {
     (a, b) => new Date(b.metadata.date) - new Date(a.metadata.date),
   );
 
-  return postEntries;
+  const tags = getTags(postEntries, { amount: 10 });
+
+  return { postEntries, tags };
 }
+
+const getTags = (posts, options = {}) => {
+  const filterCount = {};
+  posts.forEach((post) => {
+    const tags = post.metadata.tags;
+    tags.forEach((tag) => {
+      if (Object.keys(filterCount).includes(tag)) {
+        filterCount[tag] = filterCount[tag] + 1;
+      } else {
+        filterCount[tag] = 1;
+      }
+    });
+  });
+  const filters = Object.keys(filterCount);
+  if (options.amount) {
+    filters.sort((a, b) => {
+      filterCount[b] - filterCount[a];
+    });
+    return filters.slice(0, options.amount);
+  }
+  return filters;
+};
