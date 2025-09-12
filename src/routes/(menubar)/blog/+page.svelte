@@ -47,7 +47,7 @@
       {@render postCard(
         post.metadata.title,
         post.metadata.date,
-        post.slug,
+        post.url,
         post.cover,
       )}
     {/each}

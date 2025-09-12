@@ -19,6 +19,7 @@ export async function getPosts() {
 
       return {
         slug,
+        url: `${base}/blog/${slug}`,
         metadata: postModule.metadata,
         Content: postModule.default,
         cover,
