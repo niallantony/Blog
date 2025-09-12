@@ -18,8 +18,13 @@
 <Filter onchange={changeFilters} tags={data.topTags} />
 <div class="blog-layout">
   <div class="display">
-    {#each data.titles as post}
-      {@render postCard(post.title, post.date, post.url, post.image)}
+    {#each data.posts as post}
+      {@render postCard(
+        post.metadata.title,
+        post.metadata.date,
+        post.slug,
+        post.cover,
+      )}
     {/each}
   </div>
 </div>

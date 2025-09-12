@@ -2,14 +2,13 @@
   import Barcode from "$lib/Barcode.svelte";
   let { title, date, url, image } = $props();
 
-  let clickurl = $derived(url);
-  let imageUrl = $derived(`/blog/thumbnail?path=${image}`);
+  let clickurl = $derived(`/blog/${url}`);
 </script>
 
 <a href={clickurl} class="card">
   <Barcode string={title}>
     {#if image}
-      <div class="imgframe" style="background-image: url({imageUrl});"></div>
+      <div class="imgframe" style="background-image: url({image});"></div>
     {:else}
       <div class="noimg"><p>no_img</p></div>
     {/if}

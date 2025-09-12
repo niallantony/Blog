@@ -149,19 +149,22 @@
   a {
     font-family: monospace;
     margin: 0.5rem 0;
+    color: var(--accent);
   }
   .icon-list > li::before {
     content: "";
   }
-  :global(li > svg) {
+  :global(li > svg),
+  :global(li > a > svg) {
     margin-right: 1rem;
     transform: scale(120%) translateY(2px);
   }
   .about-layout {
     display: grid;
     grid-template-columns: 1fr;
-    max-width: min(100%, 720px);
+    max-width: 720px;
     align-self: center;
+    margin: 0 1rem;
   }
   p {
     font-family: monospace;
