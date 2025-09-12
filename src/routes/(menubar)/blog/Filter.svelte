@@ -2,10 +2,10 @@
   import Icon from "@iconify/svelte";
   import Search from "./Search.svelte";
   import Sort from "./Sort.svelte";
-  let { tags, onchange } = $props();
+  let { tags, onchange, onSort } = $props();
 
   let selected = $state([]);
-  let sort = $state("");
+  let sort = $state("newest");
 
   let searchVisible = $state(false);
   let sortVisible = $state(false);
@@ -27,7 +27,7 @@
   function changeSort(value) {
     toggleSort();
     sort = value;
-    submitOptions();
+    onSort(sort);
   }
   function submitOptions() {
     onchange(selected);

@@ -8,6 +8,7 @@
 
   const posts = data.posts;
   let filters = $state([]);
+  let sortOptions = $state("newest");
 
   let filtered = $derived.by(() => {
     if (filters.length === 0) {
@@ -23,16 +24,23 @@
         return titleMatch || tagsMatch;
       });
     });
+    if (sortOptions === "oldest") {
+      filtered.reverse();
+    }
     return filtered;
   });
 
   function changeFilters(searches) {
     filters = searches;
   }
+
+  function changeSort(sort) {
+    sortOptions = sort;
+  }
 </script>
 
 <h1>Blog</h1>
-<Filter onchange={changeFilters} tags={data.tags} />
+<Filter onchange={changeFilters} onSort={changeSort} tags={data.tags} />
 <div class="blog-layout">
   <div class="display">
     {#each filtered as post}
