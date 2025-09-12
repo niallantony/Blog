@@ -6,13 +6,6 @@
   <header>
     <h1>{metadata.title}</h1>
     <p class="date">{metadata.date}</p>
-    {#if metadata.tags?.length}
-      <ul class="tags">
-        {#each metadata.tags as tag}
-          <li>{tag}</li>
-        {/each}
-      </ul>
-    {/if}
   </header>
   <section class="content">
     <slot />
