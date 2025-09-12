@@ -1,5 +1,4 @@
 <script>
-  import { goto } from "$app/navigation";
   import Barcode from "$lib/Barcode.svelte";
   import Card from "./Card.svelte";
   import Filter from "./Filter.svelte";
@@ -7,19 +6,50 @@
 
   let { data } = $props();
 
+  const posts = data.posts;
   let filters = $state([]);
+  let sortOptions = $state("newest");
 
-  function changeFilters(string) {
-    goto(`?${string}`);
+  let filtered = $derived.by(() => {
+    if (filters.length === 0) {
+      return posts;
+    }
+    const filtered = data.posts.filter((post) => {
+      return filters.every((term) => {
+        const t = term.toLowerCase();
+        const titleMatch = post.metadata.title.toLowerCase().includes(t);
+        const tagsMatch = post.metadata.tags?.some((tag) =>
+          tag.toLowerCase().includes(t),
+        );
+        return titleMatch || tagsMatch;
+      });
+    });
+    if (sortOptions === "oldest") {
+      filtered.reverse();
+    }
+    return filtered;
+  });
+
+  function changeFilters(searches) {
+    filters = searches;
+  }
+
+  function changeSort(sort) {
+    sortOptions = sort;
   }
 </script>
 
 <h1>Blog</h1>
-<Filter onchange={changeFilters} tags={data.topTags} />
+<Filter onchange={changeFilters} onSort={changeSort} tags={data.tags} />
 <div class="blog-layout">
   <div class="display">
-    {#each data.titles as post}
-      {@render postCard(post.title, post.date, post.url, post.image)}
+    {#each filtered as post}
+      {@render postCard(
+        post.metadata.title,
+        post.metadata.date,
+        post.slug,
+        post.cover,
+      )}
     {/each}
   </div>
 </div>
