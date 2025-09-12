@@ -2,6 +2,7 @@
   import { fade } from "svelte/transition";
   let display = $state("");
   const finalTitle = "niall craven";
+
   async function searchAnimation(string) {
     const COUNT = 10;
 
@@ -9,7 +10,7 @@
       const finalChar = string[c];
       for (let i = 0; i < COUNT; i++) {
         const character = String.fromCharCode(
-          Math.floor(Math.random() * 93) + 2,
+          Math.floor(Math.random() * 96) + 32,
         );
         const letter = await delayLetter(character);
         display = display.slice(0, -1);
@@ -27,7 +28,7 @@
 
 <div class="home-back">
   <h1>{display}</h1>
-  <p in:fade={{ delay: 3000 }}>Full Stack Developer and Creative Coder</p>
+  <p in:fade={{ delay: 3000 }}>Software Developer</p>
 </div>
 
 <style>
