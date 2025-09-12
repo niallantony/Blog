@@ -1,4 +1,5 @@
 <script>
+import { base } from "$app/paths"
   let { children } = $props();
   let lightMode = $state(true);
   function changeMode() {
@@ -8,10 +9,10 @@
 
 <div class={lightMode ? "body light" : "body dark"}>
   <nav>
-    <a href="/">home</a>
-    <a href="/about">about</a>
-    <a href="/portfolio">portfolio</a>
-    <a href="/blog">blog</a>
+    <a href={`${base}/`}>home</a>
+    <a href={`${base}/about`}>about</a>
+    <a href={`${base}/portfolio`}>portfolio</a>
+    <a href={`${base}/blog`}>blog</a>
   </nav>
   <div class="content">
     {@render children()}

@@ -1,8 +1,9 @@
 <script>
+  import { base } from "$app/paths";
   import Barcode from "$lib/Barcode.svelte";
   let { title, date, url, image } = $props();
 
-  let clickurl = $derived(`/blog/${url}`);
+  let clickurl = $derived(`${base}/blog/${url}`);
 </script>
 
 <a href={clickurl} class="card">
