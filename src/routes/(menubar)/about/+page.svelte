@@ -9,17 +9,25 @@
   <h2>Who I Am</h2>
   <p>
     I’m a software enthusiast with a background in engineering, art, and
-    problem-solving. My journey has taken me from designing board games as a kid
-    to working as an artist and teacher, but I’ve always been drawn to
+    problem-solving. My journey has taken me from designing games as a kid to
+    working as an artist and educator, but I’ve always been drawn to
     technology’s creative potential. Now, I focus on building software systems,
-    exploring AI, and developing projects that blend engineering with artistry.
+    exploring new technology, and developing projects that blend engineering
+    with artistry.
+  </p>
+  <p>
+    While I value new technologies and trends in development, I place importance
+    on core skills that I believe will serve me well in any role: programming
+    fundamentals, good system design and effective communication skills.
   </p>
   <h2>What I Am Working On Now</h2>
   <ul>
-    <li>working on my personal site</li>
+    <li>building up my personal site</li>
     <li>studying as part of a MSc in Computer Science</li>
     <li>teaching Data Skills to University Students</li>
-    <li>earning my Google Cloud Engineer certificate</li>
+    <li>
+      developing applications in conjunction with accessibility researchers
+    </li>
   </ul>
 
   <div class="columns">
@@ -27,17 +35,16 @@
       <h2>What I Use:</h2>
       <ul class="icon-list">
         <li><Icon icon="material-icon-theme:nodejs" />Node.js</li>
+        <li><Icon icon="devicon:spring" />Spring</li>
         <li><Icon icon="material-icon-theme:python" />Python</li>
         <li><Icon icon="skill-icons:expressjs-dark" />Express.js</li>
         <li><Icon icon="material-icon-theme:svelte" />Svelte</li>
-        <li><Icon icon="material-icon-theme:react" />React</li>
-        <li><Icon icon="material-icon-theme:javascript" />JavaScript</li>
+        <li><Icon icon="material-icon-theme:react" />React/React-Native</li>
+        <li><Icon icon="material-icon-theme:typescript" />TypeScript</li>
         <li><Icon icon="material-icon-theme:css" />CSS</li>
         <li><Icon icon="material-icon-theme:html" />HTML</li>
         <li><Icon icon="tabler:api" />REST APIs</li>
         <li><Icon icon="logos:postgresql" />PostgreSQL</li>
-        <li><Icon icon="material-icon-theme:prisma" />Prisma</li>
-        <li><Icon icon="logos:webpack" />Webpack</li>
         <li><Icon icon="material-icon-theme:jest" />Jest</li>
         <li><Icon icon="material-icon-theme:git" />Git</li>
       </ul>
@@ -45,18 +52,14 @@
     <div>
       <h2>What I Study:</h2>
       <ul class="icon-list">
-        <li><Icon icon="material-icon-theme:typescript" />TypeScript</li>
-        <li><Icon icon="material-icon-theme:java" />Java</li>
-        <li></li>
         <li><Icon icon="logos:google-cloud-functions" />Cloud Engineering</li>
-        <li></li>
         <li>
           <Icon icon="carbon:container-software" />Software Fundamentals
         </li>
+        <li><Icon icon="icon-park:server" />Backend Development</li>
       </ul>
       <h2>What Interests me:</h2>
       <ul class="icon-list">
-        <li><Icon icon="icon-park:server" />Backend Development</li>
         <li><Icon icon="icon-park:robot-one" />Machine Learning & AI</li>
         <li><Icon icon="icon-park:database-point" />Databases</li>
         <li><Icon icon="icon-park:network-tree" />Computer Systems</li>
@@ -96,7 +99,7 @@
         ><Icon icon="icon-park:game" />Games</a
       >
     </li>
-    <li><Icon icon="icon-park:tree-two" />Gardening</li>
+    <li><Icon icon="icon-park:weightlifting" />Weightlifting</li>
   </ul>
   <h2>How to Contact Me:</h2>
   <ul class="icon-list">
