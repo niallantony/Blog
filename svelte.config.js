@@ -1,6 +1,7 @@
 import { mdsvex } from "mdsvex";
 import adapter from "@sveltejs/adapter-static";
 import path from "path";
+import relativeImages from "mdsvex-relative-images";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -12,7 +13,7 @@ const config = {
       layout: {
         blog: path.resolve("./src/lib/PostLayout.svelte"),
       },
-      remarkPlugins: [],
+      remarkPlugins: [relativeImages],
       rehypePlugins: [],
     }),
   ],

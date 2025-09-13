@@ -73,6 +73,14 @@
     .namespace {
       opacity: 0.7;
     }
+    code::-webkit-scrollbar {
+      display: none;
+    }
+
+    code {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
     .token.property,
     .token.tag,

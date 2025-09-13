@@ -23,6 +23,7 @@
     "jest-dom": "^4.0.0",
     "jsdom": "^26.0.0",
     "mdsvex": "^0.12.6",
+    "mdsvex-relative-images": "^2.0.0",
     "svelte": "^5.0.0",
     "vite": "^6.2.3",
     "vitest": "^3.0.0"
