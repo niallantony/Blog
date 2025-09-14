@@ -12,11 +12,12 @@ import FloatImage from '$lib/FloatImage.svelte'
 ## The Problem
 Right now my blog has the ability to serve Markdown files through **mdsvex** and to generate cover images for my index. One feature I wanted to be able to implement however is posting images into the blog body and having them built along with the blog. When working with a database I was working on a way to extract images and upload them into a cloud based directory from where I could link them in my blog. With this static page I image the process being a lot simplet.
 
-## Method
 
 <BlogImage source='./cat.jpg' alt="Cat">
 My first image rendered inside a blog. What a handsome boy!
 </BlogImage>
+
+## Method
 
 Using `![Image](src)` markdown notation in my blog presented me with a few problems.
 
@@ -62,7 +63,7 @@ The next issue was styling the images. Using markdown's image notation imports i
 
 ```svelte
 // Svelte components right within the markdown!
-<BlogImage source='./cat.jpg' alt="Cat">
+<BlogImage source='./cat.jpg' alt="Cat" size="medium">
     My first image rendered inside a blog. What a handsome boy!
 </BlogImage>
 ``` 
@@ -70,6 +71,10 @@ The next issue was styling the images. Using markdown's image notation imports i
 
 I can then create a component `<BlogImage>` which handles all my styling and use this for any images I want to include. It is a little more verbose than using markdown's native notation - but it allows me finer control over the styling of images. I can include images in rows, grids, nestled in text and so on!
 
-<BlogImage source='./cat3.jpg' alt="Cat">
+## Possible Issues
+
+This all works really well for inserting images, and in particular my `BlogImage` block style photos are predictable and work well. For the more intricate floating images that allow text wrapping there comes the headache of layout (I just can't shake the graphic design mindset from me) and how messy that might look. With no real visual editor for these Frankenstein's monster Svelte/Markdown blog posts, the current way of checking layout comes from finishing my blog, building it, previewing it in Chrome and then tweaking the CSS with developers tools - a far from ideal method. Perhaps in the future a more sophisticated layout pattern can be achieved using some of the other features of **mdsvex**. For now however I am quite happy with how it has worked out.
+
+<BlogImage source='./cat3.jpg' alt="Cat" size="medium">
 Ok, I'll stop showing off my images/cats now.
 </BlogImage>
