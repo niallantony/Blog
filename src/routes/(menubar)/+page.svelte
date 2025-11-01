@@ -1,8 +1,10 @@
 <script>
   import { fade } from "svelte/transition";
   import { base } from "$app/paths";
+  import { translate } from "./i18n";
   import Icon from "@iconify/svelte";
   let display = $state("");
+  let locale = $state("en");
   const finalTitle = "niall craven";
 
   async function searchAnimation(string) {
@@ -26,6 +28,15 @@
     return new Promise((resolve) => setTimeout(() => resolve(c), 20));
   }
   searchAnimation(finalTitle);
+
+  function toEn() {
+    locale = "en";
+  }
+  function toKr() {
+    locale = "kr";
+  }
+
+  let t = (key) => translate(locale, key);
 </script>
 
 <!-- Masthead -->
@@ -38,33 +49,32 @@
 <!-- About Me -->
 
 <article class="about-layout" id="about">
-  <h2>Who I Am</h2>
+  <div class="lang">
+    <button class={locale === "en" ? "active-lang" : null} onclick={toEn}
+      >en</button
+    >
+    <button class={locale === "kr" ? "active-lang" : null} onclick={toKr}
+      >kr</button
+    >
+  </div>
+  <h2>{t("headers.about")}</h2>
   <p>
-    I am someone who grew up around computers and have always been interested in
-    what can be achieved with them. My interest in programming started with
-    designing and writing computer games as a kid, and progressed through my
-    career as an artists and educator. Programming and making things is
-    something I have a passion for, and I hope to be the kind of developer who
-    can blend engineering with creativity.
+    {t("body.about.0")}
   </p>
   <p>
-    While I value new technologies and trends in development, I place importance
-    on core skills that I believe will serve me well in any role: programming
-    fundamentals, good system design and effective communication skills.
+    {t("body.about.1")}
   </p>
-  <h2>What I Am Working On Now</h2>
+  <h2>{t("headers.working")}</h2>
   <ul>
-    <li>building up my personal site</li>
-    <li>studying as part of a MSc in Computer Science</li>
-    <li>teaching Data Skills to University Students</li>
-    <li>
-      developing applications in conjunction with accessibility researchers
-    </li>
+    <li>{t("body.working.0")}</li>
+    <li>{t("body.working.1")}</li>
+    <li>{t("body.working.2")}</li>
+    <li>{t("body.working.3")}</li>
   </ul>
 
   <div class="columns">
     <div>
-      <h2>What I Use:</h2>
+      <h2>{t("headers.stack")}</h2>
       <ul class="icon-list">
         <li><Icon icon="material-icon-theme:nodejs" />Node.js</li>
         <li><Icon icon="devicon:spring" />Spring</li>
@@ -83,56 +93,54 @@
       </ul>
     </div>
     <div>
-      <h2>What I Study:</h2>
+      <h2>{t("headers.studying")}</h2>
       <ul class="icon-list">
-        <li><Icon icon="logos:google-cloud-functions" />Cloud Engineering</li>
         <li>
-          <Icon icon="carbon:container-software" />Software Fundamentals
+          <Icon icon="logos:google-cloud-functions" />{t("body.studying.0")}
         </li>
-        <li><Icon icon="icon-park:server" />Backend Development</li>
+        <li>
+          <Icon icon="carbon:container-software" />{t("body.studying.1")}
+        </li>
+        <li><Icon icon="icon-park:server" />{t("body.studying.2")}</li>
       </ul>
-      <h2>What Interests me:</h2>
+      <h2>{t("headers.interests")}</h2>
       <ul class="icon-list">
-        <li><Icon icon="icon-park:robot-one" />Machine Learning & AI</li>
-        <li><Icon icon="icon-park:database-point" />Databases</li>
-        <li><Icon icon="icon-park:network-tree" />Computer Systems</li>
-        <li><Icon icon="icon-park:format-brush" />Creative Coding</li>
-        <li><Icon icon="icon-park:eyes" />Graphics and Visualisation</li>
+        <li><Icon icon="icon-park:robot-one" />{t("body.interests.0")}</li>
+        <li><Icon icon="icon-park:database-point" />{t("body.interests.1")}</li>
+        <li><Icon icon="icon-park:network-tree" />{t("body.interests.2")}</li>
+        <li><Icon icon="icon-park:format-brush" />{t("body.interests.3")}</li>
+        <li><Icon icon="icon-park:eyes" />{t("body.interests.4")}</li>
       </ul>
     </div>
   </div>
-  <h2>What I Believe</h2>
+  <h2>{t("headers.belief")}</h2>
   <p>
-    Technology should be something that serves people, no matter their
-    background or capabilities. I would like to help create software which makes
-    the world a more inclusive place. I believe that software developers have a
-    duty to make reliable and ethical software.
+    {t("body.belief")}
   </p>
-  <h2>What I Do Outside the Computer</h2>
+  <h2>{t("headers.hobbies")}</h2>
   <p>
-    When I am not relaxing with my beautiful wife and two oddball cats, I like
-    to occupy my time with one of many hobbies.
+    {t("body.hobbies.text")}
   </p>
   <ul class="icon-list">
     <li>
       <a href="https://app.thestorygraph.com/profile/niallantony"
-        ><Icon icon="icon-park:book-open" />Reading</a
+        ><Icon icon="icon-park:book-open" />{t("body.hobbies.list.0")}</a
       >
     </li>
     <li>
       <a href="https://www.behance.net/niallantony"
-        ><Icon icon="icon-park:pencil" />Drawing & Painting</a
+        ><Icon icon="icon-park:pencil" />{t("body.hobbies.list.1")}</a
       >
     </li>
-    <li><Icon icon="icon-park:spanner" />DIY</li>
+    <li><Icon icon="icon-park:spanner" />{t("body.hobbies.list.2")}</li>
     <li>
       <a href="https://steamcommunity.com/profiles/76561197972290812/"
-        ><Icon icon="icon-park:game" />Games</a
+        ><Icon icon="icon-park:game" />{t("body.hobbies.list.3")}</a
       >
     </li>
-    <li><Icon icon="icon-park:weightlifting" />Weightlifting</li>
+    <li><Icon icon="icon-park:weightlifting" />{t("body.hobbies.list.4")}</li>
   </ul>
-  <h2>How to Contact Me:</h2>
+  <h2>{t("headers.contact")}</h2>
   <ul class="icon-list">
     <li>
       <a href="https://github.com/niallantony"
@@ -151,7 +159,7 @@
     </li>
     <li>
       <a href={`${base}/cv.pdf`}
-        ><Icon icon="icon-park:file-pdf" />Download my CV (pdf)</a
+        ><Icon icon="icon-park:file-pdf" />{t("body.contact")}</a
       >
     </li>
   </ul>
@@ -173,9 +181,12 @@
     content: "∎ ";
     color: var(--accent);
   }
+  .active-lang {
+    color: var(--light);
+  }
 
   .subtitle {
-    font-size: 24pt;
+    font-size: 2em;
   }
 
   h1 {
@@ -217,10 +228,6 @@
     font-family: monospace;
     background-color: var(--dark);
   }
-  .section-header {
-    font-size: max(3rem, 6vw);
-    margin-top: 2rem;
-  }
   li,
   a {
     font-family: monospace;
@@ -245,5 +252,8 @@
   p {
     font-family: monospace;
     line-height: 1.8;
+  }
+  .lang button {
+    font-size: 2em;
   }
 </style>
