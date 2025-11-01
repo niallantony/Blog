@@ -8,12 +8,12 @@
   <a href={`${base}/cv.pdf`}>Download my CV (pdf)</a>
   <h2>Who I Am</h2>
   <p>
-    I’m a software enthusiast with a background in engineering, art, and
-    problem-solving. My journey has taken me from designing games as a kid to
-    working as an artist and educator, but I’ve always been drawn to
-    technology’s creative potential. Now, I focus on building software systems,
-    exploring new technology, and developing projects that blend engineering
-    with artistry.
+    I am someone who grew up around computers and have always been interested in
+    what can be achieved with them. My interest in programming started with
+    designing and writing computer games as a kid, and progressed through my
+    career as an artists and educator. Programming and making things is
+    something I have a passion for, and I hope to be the kind of developer who
+    can blend engineering with creativity.
   </p>
   <p>
     While I value new technologies and trends in development, I place importance
@@ -37,6 +37,7 @@
         <li><Icon icon="material-icon-theme:nodejs" />Node.js</li>
         <li><Icon icon="devicon:spring" />Spring</li>
         <li><Icon icon="material-icon-theme:python" />Python</li>
+        <li><Icon icon="material-icon-theme:javaclass" />Java</li>
         <li><Icon icon="skill-icons:expressjs-dark" />Express.js</li>
         <li><Icon icon="material-icon-theme:svelte" />Svelte</li>
         <li><Icon icon="material-icon-theme:react" />React/React-Native</li>
@@ -70,12 +71,10 @@
   </div>
   <h2>What I Believe</h2>
   <p>
-    Technology is at its best when it brings people together, enhances
-    creativity, and makes knowledge more accessible. I believe in a future where
-    software is built responsibly, AI serves as a tool for inclusion, and
-    innovation is driven by curiosity and craft — not hype. As a developer, I
-    want to contribute to this vision by crafting systems that are effective,
-    ethical, and open to all.
+    Technology should be something that serves people, no matter their
+    background or capabilities. I would like to help create software which makes
+    the world a more inclusive place. I believe that software developers have a
+    duty to make reliable and ethical software.
   </p>
   <h2>What I Do Outside the Computer</h2>
   <p>
