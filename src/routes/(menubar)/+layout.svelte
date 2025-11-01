@@ -10,7 +10,6 @@
 <div class={lightMode ? "body light" : "body dark"}>
   <nav>
     <a href={`${base}/`}>home</a>
-    <a href={`${base}/about`}>about</a>
     <a href={`${base}/portfolio`}>portfolio</a>
     <a href={`${base}/blog`}>blog</a>
   </nav>
