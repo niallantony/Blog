@@ -8,6 +8,7 @@ export default {
     "headers.belief": "What I Believe",
     "headers.hobbies": "What I Do Outside the Computer",
     "headers.contact": "How to Contact Me:",
+    "headers.projects": "What I Have Worked On Recently",
 
     "body.about.0":
       "I am someone who grew up around computers and have always been interested in what can be achieved with them. My interest in programming started with designing and writing computer games as a kid, and progressed through my career as an artist and educator. Programming and making things is something I have a passion for, and I hope to be the kind of developer who can blend engineering with creativity.",
@@ -53,6 +54,7 @@ export default {
     "headers.belief": "가지고 있는 의견",
     "headers.hobbies": "개발 외에 하고 있는 것",
     "headers.contact": "연락 방법:",
+    "headers.projects": "최근에 만든 프로젝트들",
 
     "body.about.0":
       "저는 컴퓨터와 함께 자라며, 컴퓨터로 무엇을 할 수 있는지에 대해 늘 흥미를 가져왔습니다. 프로그래밍에 대한 관심은 어린 시절 컴퓨터 게임을 디자인하고 제작하면서 시작되었고, 예술가와 교육자로서의 경력을 거치며 점점 더 깊어졌습니다. 프로그래밍하는 일은 제 열정이며, 기술과 창의성을 융합할 수 있는 개발자가 되고 싶습니다.",

@@ -2,7 +2,19 @@
   import { fade } from "svelte/transition";
   import { base } from "$app/paths";
   import { translate } from "./i18n";
+  import { projects } from "$lib/projectBlurbs";
+  import groomingPrevention from "$lib/assets/groomingProjectSplash.png";
+  import deulaubaba from "$lib/assets/deulaubaba.png";
+  import cvBuilder from "$lib/assets/cvBuilder.png";
   import Icon from "@iconify/svelte";
+  import Project from "./Project.svelte";
+
+  const imageMap = {
+    groomingPrevention: groomingPrevention,
+    deulaubaba: deulaubaba,
+    cvBuilder: cvBuilder,
+  };
+
   let display = $state("");
   let locale = $state("en");
   const finalTitle = "niall craven";
@@ -113,6 +125,21 @@
       </ul>
     </div>
   </div>
+  <h2>{t("headers.projects")}</h2>
+</article>
+<section>
+  <div class="projects-pane">
+    {#each projects as project}
+      <Project
+        title={project[locale].title}
+        description={project[locale].description}
+        image={imageMap[project.image]}
+        stack={project.stack}
+      />
+    {/each}
+  </div>
+</section>
+<section class="about-layout">
   <h2>{t("headers.belief")}</h2>
   <p>
     {t("body.belief")}
@@ -163,7 +190,7 @@
       >
     </li>
   </ul>
-</article>
+</section>
 
 <style>
   .home-back {
@@ -255,5 +282,17 @@
   }
   .lang button {
     font-size: 2em;
+  }
+
+  .projects-pane {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media only screen and (max-width: 1130px) {
+    .projects-pane {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>
