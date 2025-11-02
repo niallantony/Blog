@@ -1,19 +1,10 @@
 <script>
   import { fade } from "svelte/transition";
   import { base } from "$app/paths";
-  import { translate } from "./i18n";
+  import { translate } from "$lib/i18n";
   import { projects } from "$lib/projectBlurbs";
-  import groomingPrevention from "$lib/assets/groomingProjectSplash.png";
-  import deulaubaba from "$lib/assets/deulaubaba.png";
-  import cvBuilder from "$lib/assets/cvBuilder.png";
   import Icon from "@iconify/svelte";
-  import Project from "./Project.svelte";
-
-  const imageMap = {
-    groomingPrevention: groomingPrevention,
-    deulaubaba: deulaubaba,
-    cvBuilder: cvBuilder,
-  };
+  import Project from "$lib/Project.svelte";
 
   let display = $state("");
   let locale = $state("en");
@@ -133,8 +124,10 @@
       <Project
         title={project[locale].title}
         description={project[locale].description}
-        image={imageMap[project.image]}
+        image={project.image}
         stack={project.stack}
+        link={project.live}
+        repo={project.github}
       />
     {/each}
   </div>
