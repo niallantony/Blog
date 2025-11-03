@@ -75,6 +75,29 @@
     <li>{t("body.working.3")}</li>
   </ul>
 
+  <h2>{t("headers.contact")}</h2>
+  <ul class="icon-list">
+    <li>
+      <a href="https://github.com/niallantony"
+        ><Icon icon="icon-park:github" />Github</a
+      >
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/niall-craven-22557331/"
+        ><Icon icon="skill-icons:linkedin" />LinkedIn</a
+      >
+    </li>
+    <li>
+      <a href="mailto:craven.niall@googlemail.com"
+        ><Icon icon="material-icon-theme:email" />craven.niall@googlemail.com</a
+      >
+    </li>
+    <li>
+      <a href={`${base}/cv.pdf`}
+        ><Icon icon="icon-park:file-pdf" />{t("body.contact")}</a
+      >
+    </li>
+  </ul>
   <div class="columns">
     <div>
       <h2>{t("headers.stack")}</h2>
@@ -159,29 +182,6 @@
       >
     </li>
     <li><Icon icon="icon-park:weightlifting" />{t("body.hobbies.list.4")}</li>
-  </ul>
-  <h2>{t("headers.contact")}</h2>
-  <ul class="icon-list">
-    <li>
-      <a href="https://github.com/niallantony"
-        ><Icon icon="icon-park:github" />Github</a
-      >
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/niall-craven-22557331/"
-        ><Icon icon="skill-icons:linkedin" />LinkedIn</a
-      >
-    </li>
-    <li>
-      <a href="mailto:craven.niall@googlemail.com"
-        ><Icon icon="material-icon-theme:email" />craven.niall@googlemail.com</a
-      >
-    </li>
-    <li>
-      <a href={`${base}/cv.pdf`}
-        ><Icon icon="icon-park:file-pdf" />{t("body.contact")}</a
-      >
-    </li>
   </ul>
 </section>
 
