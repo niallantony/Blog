@@ -12,6 +12,7 @@
       title={project.en.title}
       description={project.en.description}
       image={project.image}
+      stack={project.stack}
       link={project.live}
       repo={project.github}
     />
