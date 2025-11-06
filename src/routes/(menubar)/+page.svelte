@@ -253,6 +253,7 @@
     font-family: monospace;
     margin: 0.5rem 0;
     color: var(--accent);
+    text-decoration: underline;
   }
   a:hover {
     color: var(--light);
