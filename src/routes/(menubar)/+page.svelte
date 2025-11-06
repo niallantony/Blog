@@ -253,6 +253,8 @@
     font-family: monospace;
     margin: 0.5rem 0;
     color: var(--accent);
+  }
+  a {
     text-decoration: underline;
   }
   a:hover {
