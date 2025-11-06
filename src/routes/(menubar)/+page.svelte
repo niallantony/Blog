@@ -254,6 +254,9 @@
     margin: 0.5rem 0;
     color: var(--accent);
   }
+  a:hover {
+    color: var(--light);
+  }
   .icon-list > li::before {
     content: "";
   }
