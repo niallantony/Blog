@@ -2,13 +2,15 @@
   import Icon from "@iconify/svelte";
 </script>
 
-<h1>Niall Craven</h1>
-<div class="header">
-  <h2 class="title">Full Stack Developer</h2>
-  <ul class="contacts">
-    <li><Icon icon="ri:phone-fill" />+82-10-7686-2858</li>
-    <li><Icon icon="ri:mail-fill" />craven.niall@gmail.com</li>
-  </ul>
+<div class="top">
+  <h1>Niall Craven</h1>
+  <div class="header">
+    <h2 class="title">Full Stack Developer</h2>
+    <ul class="contacts">
+      <li><Icon icon="ri:phone-fill" />+82-10-7686-2858</li>
+      <li><Icon icon="ri:mail-fill" />craven.niall@gmail.com</li>
+    </ul>
+  </div>
 </div>
 <div class="sections">
   <div class="column left">
@@ -61,11 +63,11 @@
     <div class="big-section employment">
       <h2>Work Experience</h2>
       <div class="job">
-        <h3>Lecturer - Department of Electronics</h3>
+        <h3>Lecturer</h3>
+        <h4>Department of Electronics</h4>
         <div class="job-info">
           <div class="job-loc">
-            <Icon icon="ri:map-pin-2-line" />Bucheon University - Bucheon, South
-            Korea
+            <Icon icon="ri:map-pin-2-line" />Bucheon University
           </div>
           <div class="job-time">
             <Icon icon="ri:calendar-2-line" />Mar 2021 - Present
@@ -85,19 +87,15 @@
               Taught students to effectively use databases, SQL queries, and
               data pipelines in Python and Bash
             </li>
-            <li>
-              Ensured student wellbeing and provided individualised monitoring
-              for students' progress
-            </li>
           </ul>
         </div>
       </div>
       <div class="job">
-        <h3>Online Lecturer - English Language</h3>
+        <h3>Online Lecturer</h3>
+        <h4>English Language</h4>
         <div class="job-info">
           <div class="job-loc">
-            <Icon icon="ri:map-pin-2-line" />Korea Cyber University - Seoul,
-            South Korea
+            <Icon icon="ri:map-pin-2-line" />Korea Cyber University
           </div>
           <div class="job-time">
             <Icon icon="ri:calendar-2-line" />Sep 2019 - Present
@@ -113,12 +111,44 @@
               Managed students online grades and delivered personalised feedback
               and learning aims
             </li>
-            <li>
-              Liased with professors on strategies for improving online lecture
-              materials
-            </li>
           </ul>
         </div>
+      </div>
+    </div>
+    <div class="big-section projects">
+      <h2>Achievements</h2>
+      <div class="project">
+        <h3>KSAAC Excellence Award</h3>
+        <div class="project-info">
+          <div class="project-loc">
+            <Icon icon="ri:map-pin-2-line" />Korean Society of Augmentative and
+            Alternative Communication
+          </div>
+          <div class="project-time">
+            <Icon icon="ri:calendar-2-line" />2020
+          </div>
+        </div>
+        <p class="project-desc">
+          Awarded for developing an emoticon set targeting youths with
+          communication disabilities.
+        </p>
+      </div>
+      <div class="project">
+        <h3>Poster Presentation</h3>
+        <div class="project-info">
+          <div class="project-loc">
+            <Icon icon="ri:map-pin-2-line" />Digital Contents Society - Summer
+            Conference
+          </div>
+          <div class="project-time">
+            <Icon icon="ri:calendar-2-line" />2025
+          </div>
+        </div>
+        <p class="project-desc">
+          Lead developer on research team proposing a chat simulation game to
+          prevent online grooming among individuals with developmental
+          disabilities.
+        </p>
       </div>
     </div>
   </div>
@@ -127,41 +157,35 @@
       <h2>Intro</h2>
       <p>
         Motivated developer with extensive experience in visual design and
-        online education, looking to transition into backend development.
+        online education, looking to bring this expertise to a development role.
       </p>
       <p>
-        Proficient in Python, Javascript and currently studying Java (Spring).
-        Wealth of experience developing web applications with Postgres, Express,
-        React and Node.js.
+        Proficient in Python, Typescript and Java (Spring Boot). Experience
+        developing web applications with Svelte, React and React Native, and
+        developing REST APIs with Express and Spring Boot.
       </p>
     </div>
     <div class="big-section skills">
       <h2>Skills</h2>
       <ul>
         <li>
-          <strong>Programming Languages</strong><span
-            >Typescript, Java, Python</span
+          <strong>Programming</strong><span>Typescript, Java, Python, SQL</span>
+        </li>
+        <li>
+          <strong>Front-end</strong><span
+            >React, React-Native, Tanstack, Svelte, HTML, CSS</span
           >
         </li>
         <li>
-          <strong>Back-end Development</strong><span
-            >REST APIs, node.js, Express.js, SvelteKit</span
+          <strong>Back-end</strong><span
+            >REST APIs, node.js, Express.js, Spring Boot</span
           >
         </li>
         <li>
-          <strong>Database Management</strong><span
-            >PostgreSQL, MySQL, JDBC, Prisma</span
-          >
+          <strong>Database</strong><span>PostgreSQL, MySQL, JDBC, Prisma</span>
         </li>
         <li>
-          <strong>Front-end Development</strong><span
-            >React, React-Native, Svelte, HTML, CSS</span
-          >
-        </li>
-        <li>
-          <strong>Tools & Environment</strong><span
-            >Bash, Git, Docker, TDD, Agile
-          </span>
+          <strong>Tools</strong><span>Bash, Git, TDD, Agile </span>
         </li>
         <li>
           <strong>Design</strong><span>Figma, Adobe, Blender </span>
@@ -205,15 +229,15 @@
 </div>
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
   :root {
-    font-family: Arial, Helvetica, sans-serif;
-    --accent: #273469;
+    font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+    --accent: #474a48;
     --light-text: #6c757d;
     --light-back: #e0e1dd;
   }
   h1 {
     font-size: 34pt;
-    border-bottom: solid 1px var(--light-back);
     margin: 0;
     padding: 20px 20px 0;
   }
@@ -221,16 +245,23 @@
     margin-top: 6px;
     font-size: 14pt;
     font-weight: 400;
-    padding-left: 20px;
+  }
+  .header h2,
+  .header ul {
+    margin-bottom: 6px;
+  }
+  .header ul li {
+    margin-bottom: 0;
   }
   .header {
+    margin: 0 20px;
     display: flex;
     justify-content: space-between;
   }
-
+  .top {
+  }
   .contacts {
     margin-top: 0;
-    padding-right: 16px;
     list-style: none;
     display: flex;
   }
@@ -243,10 +274,9 @@
   .sections {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    background-color: var(--accent);
   }
   .big-section {
-    padding-left: 13px;
+    padding-left: 20px;
   }
   .big-section h2 {
     border-bottom: solid 2px var(--accent);
@@ -258,7 +288,8 @@
   }
   .skills li {
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
     border-bottom: solid 1px var(--accent);
   }
   .skills strong {
@@ -271,7 +302,8 @@
     padding: 6px;
   }
   .job-info,
-  .school-info {
+  .school-info,
+  .project-info {
     margin-right: 16px;
     display: flex;
     justify-content: space-between;
@@ -280,7 +312,9 @@
   .job-loc,
   .job-time,
   .school-name,
-  .school-time {
+  .school-time,
+  .project-time,
+  .project-loc {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -292,13 +326,15 @@
   p,
   li,
   .job-loc,
-  .job-time {
-    font-size: 10pt;
+  .job-time,
+  .project-loc,
+  .project-time {
+    font-size: 8pt;
     color: var(--light-text);
   }
   .employment li,
   .education li {
-    margin-bottom: 10px;
+    font-size: 8pt;
   }
   .education p {
     margin: 0;
@@ -310,19 +346,11 @@
   .right {
     background-color: white;
     padding-right: 20px;
-    border-left: solid 1px var(--accent);
-    border-radius: 5px 0 0 0;
+    margin-left: 6px;
   }
   .left {
     background-color: white;
-    border-radius: 0 5px 0 0;
-    border-right: solid 1px var(--accent);
-  }
-  .header,
-  h1,
-  .contacts li {
-    color: white;
-    background-color: var(--accent);
+    margin-right: 6px;
   }
   .left li {
     padding-right: 16px;
@@ -338,22 +366,6 @@
     position: relative;
     text-align: right;
   }
-  .left h2:after {
-    content: "•";
-    font-size: 34pt;
-    position: absolute;
-    right: -9px;
-    bottom: -28px;
-    color: var(--accent);
-  }
-  .right h2:after {
-    content: "•";
-    font-size: 34pt;
-    position: absolute;
-    left: -9px;
-    bottom: -28px;
-    color: var(--accent);
-  }
   .core ul {
     padding-left: 16px;
   }
@@ -361,9 +373,21 @@
     display: grid;
     grid-template-columns: 32px 1fr;
     grid-template-rows: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   .core span {
     grid-column: 2 / 3;
+  }
+  h3 {
+    margin-bottom: 0;
+  }
+  h4 {
+    margin: 0 0 2px;
+    font-size: 12px;
+    color: var(--accent);
+  }
+  .column.right {
+    display: flex;
+    flex-direction: column;
   }
 </style>
