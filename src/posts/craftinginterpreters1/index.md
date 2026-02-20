@@ -1,5 +1,5 @@
 --- 
-title: Crafting Interpreters (Part 1)
+title: Crafting Interpreters - Part 1
 date: "2026-02-20"
 tags: ['learning', 'C', 'java', 'compiler', 'book']
 ---
