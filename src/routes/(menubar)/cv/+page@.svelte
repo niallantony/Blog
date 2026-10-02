@@ -5,7 +5,6 @@
 <div class="top">
   <h1>Niall Craven</h1>
   <div class="header">
-    <h2 class="title">Full Stack Developer</h2>
     <ul class="contacts">
       <li><Icon icon="ri:phone-fill" />+82-10-7686-2858</li>
       <li><Icon icon="ri:mail-fill" />craven.niall@gmail.com</li>
@@ -28,8 +27,7 @@
         </div>
         <ul>
           <li>
-            Developed an Object Oriented ATM system in a distributed team, using
-            Scrum practices
+            Conducted research into deep-learning based denoising algorithms for MRIs and their usefulness for downstream segmentation models.
           </li>
           <li>Created a spam filter using neural networks in Python</li>
           <li>
@@ -50,7 +48,7 @@
         </div>
         <ul>
           <li>
-            Worked with Blender and Adobe Photoshop to create new media art
+            Worked with 3D modelling software and Adobe Photoshop to create new media art
           </li>
           <li>
             Worked with Baltic Museum, Gateshead, in a digital archiving
@@ -157,12 +155,15 @@
       <h2>Intro</h2>
       <p>
         Motivated developer with extensive experience in visual design and
-        online education, looking to bring this expertise to a development role.
+        online education. Currently involved in computer vision and machine learning research.
       </p>
       <p>
         Proficient in Python, Typescript and Java (Spring Boot). Experience
         developing web applications with Svelte, React and React Native, and
         developing REST APIs with Express and Spring Boot.
+      </p>
+      <p>
+        Experienced visual designer, with traditional, digital and 3D design skills.
       </p>
     </div>
     <div class="big-section skills">
@@ -172,21 +173,8 @@
           <strong>Programming</strong><span>Typescript, Java, Python, SQL</span>
         </li>
         <li>
-          <strong>Front-end</strong><span
-            >React, React-Native, Tanstack, Svelte, HTML, CSS</span
-          >
-        </li>
-        <li>
-          <strong>Back-end</strong><span
-            >REST APIs, node.js, Express.js, Spring Boot</span
-          >
-        </li>
-        <li>
-          <strong>Database</strong><span>PostgreSQL, MySQL, JDBC, Prisma</span>
-        </li>
-        <li>
-          <strong>Tools</strong><span>Bash, Git, TDD, Agile </span>
-        </li>
+          <strong>Computer Science</strong><span>ML and AI, Computer Vision, PyTorch</span>
+        </li?
         <li>
           <strong>Design</strong><span>Figma, Adobe, Blender </span>
         </li>
