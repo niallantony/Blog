@@ -174,7 +174,7 @@
         </li>
         <li>
           <strong>Computer Science</strong><span>ML and AI, Computer Vision, PyTorch</span>
-        </li?
+        </li>
         <li>
           <strong>Design</strong><span>Figma, Adobe, Blender </span>
         </li>
