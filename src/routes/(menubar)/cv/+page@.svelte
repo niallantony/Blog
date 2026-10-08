@@ -22,7 +22,7 @@
             <Icon icon="ri:map-pin-2-line" />University of Bath
           </p>
           <p class="school-time">
-            <Icon icon="ri:calendar-2-line" />2024 - 2026 (Expected)
+            <Icon icon="ri:calendar-2-line" />2024 - 2027 (Expected)
           </p>
         </div>
         <ul>
@@ -191,7 +191,7 @@
           />
           <strong>Communication:</strong>
           <span
-            >10 years experience in education and visual design has given me the
+            >6+ years experience in education and visual design has given me the
             skills to clearly and efficiently communicate and convey complex
             ideas, abstract concepts and customers' visions.</span
           >

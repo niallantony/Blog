@@ -46,7 +46,7 @@
 
 <div class="home-back">
   <h1>{display}</h1>
-  <p class="subtitle" in:fade={{ delay: 3000 }}>Web Developer</p>
+  <p class="subtitle" in:fade={{ delay: 3000 }}>Software Developer</p>
 </div>
 
 <!-- About Me -->
