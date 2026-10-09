@@ -105,7 +105,7 @@
         <li><Icon icon="material-icon-theme:python" />Python</li>
         <li><Icon icon="material-icon-theme:javaclass" />Java</li>
         <li><Icon icon="material-icon-theme:pytorch" />PyTorch</li>
-        <li><Icon icon="devicon:spring" />Spring</li>
+        <li><Icon icon="devicon:spring" />Spring Boot</li>
         <li><Icon icon="skill-icons:expressjs-dark" />Express.js</li>
         <li><Icon icon="material-icon-theme:svelte" />Svelte/SvelteKit</li>
         <li><Icon icon="material-icon-theme:react" />React/React-Native</li>
