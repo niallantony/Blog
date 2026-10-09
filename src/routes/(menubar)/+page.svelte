@@ -102,31 +102,29 @@
     <div>
       <h2>{t("headers.stack")}</h2>
       <ul class="icon-list">
-        <li><Icon icon="material-icon-theme:nodejs" />Node.js</li>
-        <li><Icon icon="devicon:spring" />Spring</li>
         <li><Icon icon="material-icon-theme:python" />Python</li>
         <li><Icon icon="material-icon-theme:javaclass" />Java</li>
+        <li><Icon icon="material-icon-theme:pytorch" />PyTorch</li>
+        <li><Icon icon="devicon:spring" />Spring</li>
         <li><Icon icon="skill-icons:expressjs-dark" />Express.js</li>
         <li><Icon icon="material-icon-theme:svelte" />Svelte/SvelteKit</li>
         <li><Icon icon="material-icon-theme:react" />React/React-Native</li>
+        <li><Icon icon="material-icon-theme:javascript" />JavaScript</li>
         <li><Icon icon="material-icon-theme:typescript" />TypeScript</li>
-        <li><Icon icon="material-icon-theme:css" />CSS</li>
-        <li><Icon icon="material-icon-theme:html" />HTML</li>
         <li><Icon icon="tabler:api" />REST APIs</li>
-        <li><Icon icon="logos:postgresql" />PostgreSQL</li>
+        <li><Icon icon="logos:postgresql" />SQL</li>
         <li><Icon icon="material-icon-theme:jest" />Jest</li>
         <li><Icon icon="material-icon-theme:git" />Git</li>
+        <li><Icon icon="devicon:bash" />Bash</li>
       </ul>
     </div>
     <div>
       <h2>{t("headers.studying")}</h2>
       <ul class="icon-list">
         <li>
-          <Icon icon="logos:google-cloud-functions" />{t("body.studying.0")}
+          <Icon icon="icon-park:nine-points-connected" />{t("body.studying.0")}
         </li>
-        <li>
-          <Icon icon="carbon:container-software" />{t("body.studying.1")}
-        </li>
+        <li><Icon icon="icon-park:eyes" />{t("body.studying.1")}</li>
         <li><Icon icon="icon-park:server" />{t("body.studying.2")}</li>
       </ul>
       <h2>{t("headers.interests")}</h2>

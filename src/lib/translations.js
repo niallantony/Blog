@@ -21,8 +21,8 @@ export default {
     "body.working.3":
       "developing applications in conjunction with accessibility researchers",
 
-    "body.studying.0": "Cloud Engineering",
-    "body.studying.1": "Software Fundamentals",
+    "body.studying.0": "Deep Learning",
+    "body.studying.1": "Computer Vision",
     "body.studying.2": "Backend Development",
 
     "body.interests.0": "Machine Learning & AI",
